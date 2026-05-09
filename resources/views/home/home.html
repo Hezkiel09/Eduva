@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EDUVA – Ciptakan Impianmu</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+ 
+    :root {
+      --blue-main: #2563EB;
+      --blue-dark: #1E3A8A;
+      --blue-mid: #1D4ED8;
+      --navy: #1E2A4A;
+      --green-acc: #16A34A;
+      --yellow-acc: #EAB308;
+      --white: #ffffff;
+      --gray-50: #F8FAFC;
+      --gray-100: #F1F5F9;
+      --gray-200: #E2E8F0;
+      --gray-600: #475569;
+      --gray-700: #334155;
+      --gray-900: #0F172A;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 20px;
+      --radius-xl: 28px;
+    }
+ 
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--gray-900);
+      background: var(--white);
+      overflow-x: hidden;
+    }
+ 
+    /* ── NAVBAR ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--gray-200);
+      padding: 0 60px;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+ 
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+ 
+    .nav-logo-icon {
+      width: 38px;
+      height: 38px;
+    }
+ 
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      list-style: none;
+    }
+ 
+    .nav-menu a {
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--gray-700);
+      transition: color 0.2s;
+    }
+ 
+    .nav-menu a:hover { color: var(--blue-main); }
+ 
+    .btn-login {
+      background: var(--blue-main);
+      color: var(--white);
+      border: none;
+      border-radius: 50px;
+      padding: 10px 28px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+    }
+ 
+    .btn-login:hover {
+      background: var(--blue-mid);
+      transform: translateY(-1px);
+    }
+ 
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      min-height: 520px;
+      background: linear-gradient(135deg, #1E3A8A 0%, #1D4ED8 40%, #2563EB 70%, #3B82F6 100%);
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      padding: 60px 60px 60px 80px;
+    }
+ 
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.38);
+    }
+ 
+    .hero-bg-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.25;
+    }
+ 
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 520px;
+    }
+ 
+    .hero-title {
+      font-size: 62px;
+      font-weight: 800;
+      line-height: 1.08;
+      color: var(--white);
+      margin-bottom: 32px;
+      letter-spacing: -1.5px;
+    }
+ 
+    .btn-cta {
+      display: inline-block;
+      background: var(--blue-main);
+      color: var(--white);
+      border: 2px solid rgba(255,255,255,0.3);
+      border-radius: 50px;
+      padding: 14px 36px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+    }
+ 
+    .btn-cta:hover {
+      background: #1D4ED8;
+      transform: translateY(-2px);
+    }
+ 
+    .hero-right {
+      position: absolute;
+      right: 60px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 16px;
+    }
+ 
+    .hero-img-card {
+      width: 340px;
+      height: 290px;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      background: var(--gray-200);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+ 
+    .hero-img-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+ 
+    .hero-placeholder {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #CBD5E1, #94A3B8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      color: #475569;
+      font-weight: 500;
+    }
+ 
+    /* floating badges */
+    .badge-float {
+      position: absolute;
+      background: var(--white);
+      border-radius: var(--radius-md);
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+      font-size: 13px;
+      font-weight: 600;
+      z-index: 3;
+      white-space: nowrap;
+    }
+ 
+    .badge-students {
+      top: 80px;
+      right: 340px;
+      gap: 0;
+      padding: 12px 16px;
+    }
+ 
+    .badge-students .avatars {
+      display: flex;
+      margin-right: 10px;
+    }
+ 
+    .badge-students .avatar {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 2px solid var(--white);
+      margin-left: -6px;
+      background: linear-gradient(135deg, #60A5FA, #818CF8);
+    }
+ 
+    .badge-students .avatar:first-child { margin-left: 0; background: linear-gradient(135deg, #FB923C, #F472B6); }
+    .badge-students .avatar:nth-child(2) { background: linear-gradient(135deg, #34D399, #60A5FA); }
+    .badge-students .avatar:nth-child(3) { background: linear-gradient(135deg, #FBBF24, #F87171); }
+ 
+    .badge-rating {
+      bottom: 110px;
+      right: 50px;
+      gap: 8px;
+    }
+ 
+    .badge-rating .star { color: var(--yellow-acc); font-size: 16px; }
+ 
+    .badge-courses {
+      bottom: 20px;
+      right: 20px;
+      background: var(--green-acc);
+      color: var(--white);
+      border-radius: var(--radius-md);
+      padding: 10px 14px;
+      font-size: 13px;
+      font-weight: 700;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+ 
+    .badge-courses .num { font-size: 20px; font-weight: 800; }
+ 
+    /* ── KEUNGGULAN ── */
+    .section-features {
+      padding: 80px 80px 60px;
+      background: var(--gray-50);
+      text-align: center;
+    }
+ 
+    .section-label {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--blue-main);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 10px;
+    }
+ 
+    .section-title {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--gray-900);
+      margin-bottom: 12px;
+    }
+ 
+    .section-sub {
+      font-size: 15px;
+      color: var(--gray-600);
+      max-width: 480px;
+      margin: 0 auto 50px;
+      line-height: 1.7;
+    }
+ 
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+ 
+    .feature-card {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-lg);
+      padding: 32px 28px;
+      text-align: left;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+ 
+    .feature-card:hover {
+      box-shadow: 0 8px 30px rgba(37,99,235,0.1);
+      transform: translateY(-3px);
+    }
+ 
+    .feature-icon-wrap {
+      width: 52px;
+      height: 52px;
+      border-radius: var(--radius-sm);
+      background: #EFF6FF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+ 
+    .feature-icon-wrap svg {
+      width: 26px;
+      height: 26px;
+      stroke: var(--blue-main);
+    }
+ 
+    .feature-card h3 {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--gray-900);
+      margin-bottom: 10px;
+    }
+ 
+    .feature-card p {
+      font-size: 14px;
+      color: var(--gray-600);
+      line-height: 1.7;
+    }
+ 
+    /* ── WHY EDUVA ── */
+    .section-why {
+      padding: 80px;
+      background: var(--white);
+      display: flex;
+      align-items: center;
+      gap: 80px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+ 
+    .why-img-wrap {
+      flex: 0 0 380px;
+      position: relative;
+    }
+ 
+    .why-img {
+      width: 360px;
+      height: 420px;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      background: var(--gray-200);
+    }
+ 
+    .why-img .hero-placeholder {
+      border-radius: var(--radius-xl);
+    }
+ 
+    .why-deco-arrow {
+      position: absolute;
+      top: -30px;
+      left: -30px;
+      width: 60px;
+      height: 60px;
+      opacity: 0.7;
+    }
+ 
+    .why-deco-star {
+      position: absolute;
+      bottom: 20px;
+      right: -10px;
+      font-size: 36px;
+    }
+ 
+    .why-get-more {
+      text-align: center;
+      margin-bottom: 16px;
+    }
+ 
+    .link-more {
+      font-size: 14px;
+      color: var(--blue-main);
+      text-decoration: none;
+      border: 1px solid var(--blue-main);
+      border-radius: 50px;
+      padding: 8px 20px;
+      transition: background 0.2s;
+    }
+ 
+    .link-more:hover { background: #EFF6FF; }
+ 
+    .why-content { flex: 1; }
+ 
+    .why-content h2 {
+      font-size: 34px;
+      font-weight: 800;
+      color: var(--gray-900);
+      margin-bottom: 20px;
+    }
+ 
+    .why-content p {
+      font-size: 15px;
+      color: var(--gray-600);
+      line-height: 1.75;
+      margin-bottom: 24px;
+    }
+ 
+    .why-content .bold-label {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--gray-900);
+      margin-bottom: 14px;
+    }
+ 
+    .why-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 30px;
+    }
+ 
+    .why-list li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--gray-900);
+    }
+ 
+    .why-list li .icon-circle {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+ 
+    .why-list li .icon-circle svg {
+      width: 14px;
+      height: 14px;
+      stroke: white;
+    }
+ 
+    .why-phone {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--gray-900);
+      margin-bottom: 4px;
+    }
+ 
+    .why-phone-label {
+      font-size: 13px;
+      color: var(--gray-600);
+      margin-bottom: 28px;
+    }
+ 
+    .btn-trial {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--blue-dark);
+      color: var(--white);
+      border-radius: 50px;
+      padding: 16px 36px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+    }
+ 
+    .btn-trial:hover {
+      background: var(--blue-mid);
+      transform: translateY(-2px);
+    }
+ 
+    .btn-trial svg {
+      width: 18px;
+      height: 18px;
+      stroke: white;
+    }
+ 
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.75);
+      padding: 60px 80px 36px;
+    }
+ 
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+ 
+    .footer-brand .brand-name {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+ 
+    .footer-copy {
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+      margin-top: 16px;
+    }
+ 
+    .footer-social {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 8px;
+    }
+ 
+    .footer-social a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+ 
+    .footer-social a:hover { color: var(--white); }
+ 
+    .social-icon {
+      width: 20px;
+      height: 20px;
+    }
+ 
+    .footer-col h4 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+ 
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+ 
+    .footer-links a {
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+ 
+    .footer-links a:hover { color: var(--white); }
+ 
+    .footer-contact p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.7;
+    }
+ 
+    .footer-contact .contact-phone {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--white);
+      margin-top: 10px;
+    }
+ 
+    .footer-divider {
+      border: none;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      margin-bottom: 0;
+    }
+  </style>
+</head>
+<body>
+ 
+  <!-- NAVBAR -->
+  <nav>
+    <a href="#" class="nav-logo">
+      <svg class="nav-logo-icon" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="19" cy="19" r="19" fill="#1E3A8A"/>
+        <path d="M10 26L19 12L28 26" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M13 22H25" stroke="white" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="19" cy="10" r="2.5" fill="#60A5FA"/>
+      </svg>
+      <span style="font-size:20px;font-weight:800;color:#1E3A8A;letter-spacing:-0.5px;">EDU<span style="color:#2563EB;">VA</span></span>
+    </a>
+    <ul class="nav-menu">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Assessment</a></li>
+      <li><a href="#">Career Match</a></li>
+      <li><a href="#">Learning Path</a></li>
+    </ul>
+    <button class="btn-login">Login</button>
+  </nav>
+ 
+  <!-- HERO -->
+  <section class="hero">
+    <!-- Background overlay image placeholder -->
+    <div style="position:absolute;inset:0;background:linear-gradient(135deg,#1E3A8A 0%,#1D4ED8 45%,#3B82F6 100%);opacity:0.9;z-index:1;"></div>
+    <!-- classroom bg visual hint -->
+    <div style="position:absolute;inset:0;z-index:0;background:url('bg\ siswa.png') center/cover no-repeat;"></div>
+ 
+    <div class="hero-content" style="z-index:2;">
+      <h1 class="hero-title">Ciptakan<br>Impianmu<br>#Temukan<br>Potensimu</h1>
+      <a href="#" class="btn-cta">Mulai Sekarang</a>
+    </div>
+ 
+    <!-- Right: image card -->
+    <div class="hero-right">
+      <div class="hero-img-card">
+        <img src="img.png" style="width:100%;height:100%;object-fit:cover;" alt="Tutor"/>
+      </div>
+    </div>
+ 
+    <!-- Floating: Students badge -->
+    <div class="badge-float badge-students" style="top:56px;right:420px;z-index:4;">
+      <div class="avatars">
+        <div class="avatar"></div>
+        <div class="avatar"></div>
+        <div class="avatar"></div>
+        <div class="avatar"></div>
+      </div>
+      <span style="font-size:13px;font-weight:700;color:#1E3A8A;">250K+ Students</span>
+    </div>
+ 
+    <!-- Floating: Rating badge -->
+    <div class="badge-float badge-rating" style="bottom:140px;right:44px;z-index:4;">
+      <span class="star">&#9733;</span>
+      <div>
+        <div style="font-size:15px;font-weight:800;color:#0F172A;">4.9/5</div>
+        <div style="font-size:12px;color:#64748B;">Real Review</div>
+      </div>
+    </div>
+ 
+    <!-- Floating: Courses badge -->
+    <div class="badge-courses" style="position:absolute;bottom:30px;right:44px;z-index:4;">
+      <span style="font-size:11px;font-weight:600;margin-bottom:2px;">&#128218;</span>
+      <span class="num">25+</span>
+      <span style="font-size:11px;">Courses</span>
+    </div>
+  </section>
+ 
+  <!-- KEUNGGULAN KAMI -->
+  <section class="section-features">
+    <p class="section-label">Fitur Utama</p>
+    <h2 class="section-title">Keunggulan Kami</h2>
+    <p class="section-sub">Ekosistem terintegrasi untuk membantu perjalanan karir dan pendidikan vokasi Anda.</p>
+ 
+    <div class="cards-grid">
+      <!-- Card 1 -->
+      <div class="feature-card">
+        <div class="feature-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/>
+            <path d="M8 12a4 4 0 1 1 8 0"/>
+          </svg>
+        </div>
+        <h3>Asesmen Psikologi</h3>
+        <p>Pahami minat dan bakat Anda melalui serangkaian tes psikologi berbasis AI yang akurat dan mendalam.</p>
+      </div>
+      <!-- Card 2 -->
+      <div class="feature-card">
+        <div class="feature-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="7" width="20" height="14" rx="2"/>
+            <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
+            <line x1="12" y1="12" x2="12" y2="16"/>
+            <line x1="10" y1="14" x2="14" y2="14"/>
+          </svg>
+        </div>
+        <h3>Info Lowongan Kerja</h3>
+        <p>Akses ribuan peluang kerja dan magang dari mitra industri ternama yang sesuai dengan profil keahlian Anda.</p>
+      </div>
+      <!-- Card 3 -->
+      <div class="feature-card">
+        <div class="feature-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+            <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+          </svg>
+        </div>
+        <h3>Modul Pelatihan</h3>
+        <p>Tingkatkan keterampilan teknis Anda dengan modul pembelajaran praktis yang disusun oleh para ahli industri.</p>
+      </div>
+    </div>
+  </section>
+ 
+  <!-- WHY EDUVA -->
+  <section style="padding: 80px 0; background: var(--white);">
+    <div class="section-why">
+      <!-- Left: image + decorations -->
+      <div class="why-img-wrap">
+        <div style="text-align:center;margin-bottom:20px;">
+          <a href="#" class="link-more">Get More About Us</a>
+        </div>
+        <!-- Deco: wavy line (SVG) -->
+        <svg class="why-deco-arrow" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:absolute;top:-20px;left:-20px;">
+          <path d="M10 10 Q20 40 50 30 Q70 20 65 60 L58 52 M65 60 L72 53" stroke="#EF4444" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+        </svg>
+ 
+        <div class="why-img">
+          <div class="hero-placeholder" style="border-radius:var(--radius-xl);background:linear-gradient(135deg,#BAE6FD,#93C5FD);">
+            <span style="color:#1E3A8A;font-weight:600;">Foto Siswa Belajar</span>
+          </div>
+        </div>
+ 
+        <!-- Deco: star sticker -->
+        <div style="position:absolute;bottom:10px;right:-20px;font-size:32px;transform:rotate(-10deg);">&#10024;</div>
+        <!-- Deco: sun emoji -->
+        <div style="position:absolute;top:40px;right:-40px;font-size:40px;">&#128526;</div>
+      </div>
+ 
+      <!-- Right: content -->
+      <div class="why-content">
+        <h2>Why Eduva?</h2>
+        <p>EDUVA bridges the gap between education and industry by giving students clear insights about their future careers in technology. Through interactive assessments and skill analysis, students can discover their strengths, understand industry demands, and prepare themselves for the digital workforce with more confidence and direction.</p>
+ 
+        <p class="bold-label">We help students understand:</p>
+        <ul class="why-list">
+          <li>
+            <span class="icon-circle">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"/>
+              </svg>
+            </span>
+            What technology role fits them best
+          </li>
+          <li>
+            <span class="icon-circle">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"/>
+              </svg>
+            </span>
+            What skills they already have
+          </li>
+          <li>
+            <span class="icon-circle">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"/>
+              </svg>
+            </span>
+            What learning path they should take
+          </li>
+        </ul>
+ 
+        <p class="why-phone">+625 2959 500</p>
+        <p class="why-phone-label">Call to Questions</p>
+ 
+        <a href="#" class="btn-trial">
+          Start Free Trial
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"/>
+            <polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+ 
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <!-- Brand -->
+      <div class="footer-brand">
+        <div class="brand-name">
+          <svg width="32" height="32" viewBox="0 0 38 38" fill="none">
+            <circle cx="19" cy="19" r="19" fill="#2563EB"/>
+            <path d="M10 26L19 12L28 26" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M13 22H25" stroke="white" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="19" cy="10" r="2.5" fill="#93C5FD"/>
+          </svg>
+          EDU<span style="color:#60A5FA;">VA</span>
+        </div>
+        <div class="footer-social">
+          <a href="#">
+            <svg class="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5"/>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+            </svg>
+            @eduva.id
+          </a>
+          <a href="#">
+            <svg class="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-1.96C18.88 4 12 4 12 4s-6.88 0-8.6.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.4 19.54C5.12 20 12 20 12 20s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/>
+              <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/>
+            </svg>
+            eduvaYT
+          </a>
+          <a href="#">
+            <svg class="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+            </svg>
+            @eduva
+          </a>
+        </div>
+        <p class="footer-copy">© 2026 eduva.com All rights reserved.</p>
+      </div>
+ 
+      <!-- Nav links -->
+      <div class="footer-col">
+        <h4>Platform</h4>
+        <ul class="footer-links">
+          <li><a href="#">Assessment</a></li>
+          <li><a href="#">Career Match</a></li>
+          <li><a href="#">Dashboard</a></li>
+          <li><a href="#">Learning Path</a></li>
+          <li><a href="#">Profile</a></li>
+        </ul>
+      </div>
+ 
+      <!-- Empty spacer col or extra links -->
+      <div class="footer-col">
+        <h4>Perusahaan</h4>
+        <ul class="footer-links">
+          <li><a href="#">Tentang Kami</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Karir</a></li>
+          <li><a href="#">Kontak</a></li>
+        </ul>
+      </div>
+ 
+      <!-- Contact -->
+      <div class="footer-col footer-contact">
+        <h4>Kontak</h4>
+        <p>Jl Garuda no 15, Cilandak,<br>Jakarta Selatan 175612</p>
+        <p class="contact-phone">+625 2959 500</p>
+        <p style="margin-top:8px;">eduvainfo@gmail.com</p>
+      </div>
+    </div>
+ 
+    <hr class="footer-divider"/>
+  </footer>
+ 
+</body>
