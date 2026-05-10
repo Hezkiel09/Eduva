@@ -653,9 +653,21 @@
             <li><a href="#">Career Match</a></li>
             <li><a href="#">Learning Path</a></li>
         </ul>
-        <a href="{{ route('login') }}" class="btn-login">
-            Login
+        @auth
+            <form method="POST" action="{{ route('logout') }}" style="display:inline;">
+                @csrf
+                <button type="submit" class="btn-login" style="background:var(--gray-700);">Logout ({{ Auth::user()->name }})</button>
+            </form>
+        @else
+        <a href="{{ route('register') }}"
+           class="btn-login"
+           style="background:transparent; color:#2563EB; border:2px solid #2563EB;">
+            Sign Up
         </a>
+            <a href="{{ route('login') }}" class="btn-login">
+                Login
+            </a>
+        @endauth
     </nav>
 
     <!-- HERO -->
