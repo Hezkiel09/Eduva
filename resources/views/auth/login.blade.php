@@ -1,0 +1,13 @@
+<h1>Login</h1>
+
+<form method="POST" action="/login">
+    @csrf
+
+    <input type="text" name="username" placeholder="username">
+    <br><br>
+
+    <input type="password" name="password" placeholder="password">
+    <br><br>
+
+    <button type="submit">Login</button>
+</form>
