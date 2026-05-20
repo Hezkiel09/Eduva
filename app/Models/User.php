@@ -22,6 +22,10 @@ class User extends Authenticatable
      *
      * @return array<string, string>
      */
+
+    public function answers(){
+        return $this->hasMany(Answer::class, 'user_id');
+    }
     protected function casts(): array
     {
         return [
