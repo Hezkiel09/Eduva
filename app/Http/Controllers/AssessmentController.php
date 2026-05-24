@@ -26,7 +26,6 @@ class AssessmentController extends Controller
         $recommendation = Recommendation::where('min_score', '<=', $totalScore)
             ->where('max_score', '>=', $totalScore)
             ->first();
-
         if ($recommendation) {
             return response()->json([
                 'status' => 'success',

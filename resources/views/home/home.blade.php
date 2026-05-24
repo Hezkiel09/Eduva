@@ -656,7 +656,7 @@
         @auth
             <form method="POST" action="{{ route('logout') }}" style="display:inline;">
                 @csrf
-                <button type="submit" class="btn-login" style="background:var(--gray-700);">Logout ({{ Auth::user()->name }})</button>
+                <button type="submit" class="btn-login" style="background:var(--gray-700);">Logout ({{ Auth::user()->username }})</button>
             </form>
         @else
         <a href="{{ route('register') }}"
