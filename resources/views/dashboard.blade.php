@@ -1,6 +1,6 @@
 <h1>Dashboard</h1>
 
-<p>Halo, {{ auth()->user()->name }}</p>
+<p>Halo, {{ auth()->user()->username }}</p>
 
 <form method="POST" action="/logout">
     @csrf
