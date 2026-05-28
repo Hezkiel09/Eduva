@@ -12,7 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('assessments', function (Blueprint $table) {
-            $table->id();
+            $table->id('assessment_id');
+            $table->string('title');
+            $table->text('description')->nullable();
+            $table->string('major')->default('RPL');
             $table->timestamps();
         });
     }
