@@ -6,20 +6,22 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('bootcamps', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->id('bootcamp_id');
+            $table->unsignedBigInteger('track_id');
+            $table->string('name');
+            $table->string('url', 500);
+            $table->text('description')->nullable();
+
+            $table->foreign('track_id')
+                  ->references('track_id')
+                  ->on('career_tracks')
+                  ->cascadeOnDelete();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('bootcamps');
