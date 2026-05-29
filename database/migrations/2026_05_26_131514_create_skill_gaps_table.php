@@ -6,20 +6,21 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('skill_gaps', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->id('skill_gap_id');
+            $table->unsignedBigInteger('result_id');
+            $table->string('skill_name');
+            $table->enum('gap_level', ['low', 'medium', 'high']);
+
+            $table->foreign('result_id')
+                  ->references('result_id')
+                  ->on('assessment_results')
+                  ->cascadeOnDelete();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('skill_gaps');
