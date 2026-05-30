@@ -6,17 +6,27 @@ use Illuminate\Database\Eloquent\Model;
 
 class Answer extends Model
 {
+    protected $primaryKey = 'answer_id';
+    public $timestamps = false;
+
     protected $fillable = [
-        'user_id',
+        'session_id',
         'question_id',
-        'answer',
-        'score'
+        'option_id',
     ];
 
-    public function user(){
-        return $this->belongsTo(User::class);
+    protected function session()
+    {
+        return $this-> belongsTo(AssessmentSession::class, 'session_id', 'session_id');
     }
-    public function question(){
-        return $this->belongsTo(Question::class);
+
+    public function question()
+    {
+        return $this->belongsTo(Question::class, 'question_id', 'question_id');
+    }
+
+    public function option()
+    {
+    return $this->belongsTo(Option::class, 'option_id', 'option_id');
     }
 }
