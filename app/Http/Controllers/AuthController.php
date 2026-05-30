@@ -22,7 +22,6 @@ class AuthController extends Controller
     public function signup(Request $request)
     {
         $validated = $request->validate([
-            'name' => 'required',
             'username' => 'required|unique:users',
             'email' => 'nullable|email|unique:users',
             'password' => 'required|min:6'

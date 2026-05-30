@@ -1,9 +1,9 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AssessmentController;
 use Illuminate\Support\Facades\Route;
 
-// Landing page 
 Route::get('/', function () {
     return view('home.home');
 })->name('home');
@@ -11,26 +11,36 @@ Route::get('/', function () {
 
 Route::middleware('guest')->group(function () {
 
-    // Form login
     Route::get('/login', [AuthController::class, 'showLogin'])
         ->name('login');
-
-    // Proses login
     Route::post('/login', [AuthController::class, 'login']);
 
-    // Form register
     Route::get('/register', [AuthController::class, 'showSignup'])
         ->name('register');
-
-    // Proses register
     Route::post('/register', [AuthController::class, 'signup']);
 });
 
 Route::middleware('auth')->group(function () {
-
-    // Logout user
     Route::post('/logout', [AuthController::class, 'logout'])
         ->name('logout');
 
-   
+    // assesment
+    Route::get('/assessment', [AssessmentController::class, 'index'])
+        ->name('assessment.index');
+
+    Route::post('/assessment/start', [AssessmentController::class, 'start'])
+        ->name('assessment.start');
+
+    Route::get('/assessment/{session}/question/{order}', [AssessmentController::class, 'showQuestion'])
+        ->name('assessment.question');
+
+    Route::post('/assessment/{session}/answer', [AssessmentController::class, 'submitAnswer'])
+        ->name('assessment.answer');
+
+    Route::get('/assessment/{session}/confirm', [AssessmentController::class, 'confirmFinish'])
+        ->name('assessment.finish.confirm');
+
+    Route::post('/assessment/{session}/finish', [AssessmentController::class, 'finish'])
+        ->name('assessment.finish');
+
 });
