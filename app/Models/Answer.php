@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Answer extends Model
 {
     protected $primaryKey = 'answer_id';
+    const UPDATED_AT = null;
     public $timestamps = false;
 
     protected $fillable = [
@@ -15,7 +16,7 @@ class Answer extends Model
         'option_id',
     ];
 
-    protected function session()
+    public function session()
     {
         return $this-> belongsTo(AssessmentSession::class, 'session_id', 'session_id');
     }
