@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AssessmentController;
+use App\Http\Controllers\AssessmentResultController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -43,4 +44,9 @@ Route::middleware('auth')->group(function () {
     Route::post('/assessment/{session}/finish', [AssessmentController::class, 'finish'])
         ->name('assessment.finish');
 
+    Route::get('/result/{result}', [AssessmentResultController::class, 'show'])
+        ->name('result.show');
+
+    Route::get('/history', [AssessmentResultController::class, 'history'])
+        ->name('result.history');
 });
