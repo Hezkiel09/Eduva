@@ -53,6 +53,39 @@
             @endif
         </div>
     </div>
+
+    <!-- Analisis Kesenjangan & Rekomendasi Kompetensi -->
+    <div style="background: white; padding: 30px; border-radius: 8px; border: 1px solid #ddd; margin-top: 30px;">
+        <h3 style="margin-top: 0; color: #1E3A8A;">Rekomendasi Pengembangan Kompetensi</h3>
+        <p style="color: #4B5563;">Berdasarkan hasil assessment Anda, berikut adalah area kompetensi yang disarankan untuk dikembangkan (Skill Gaps):</p>
+        
+        @if($result->skillGaps && $result->skillGaps->count() > 0)
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px;">
+                @foreach($result->skillGaps as $gap)
+                    <div style="padding: 15px; border-radius: 6px; border-left: 4px solid 
+                        {{ $gap->gap_level == 'high' ? '#EF4444' : ($gap->gap_level == 'medium' ? '#F59E0B' : '#10B981') }}; background: #F9FAFB;">
+                        <h4 style="margin: 0 0 5px 0;">{{ $gap->skill_name }}</h4>
+                        <span style="font-size: 12px; font-weight: bold; padding: 2px 8px; border-radius: 12px; 
+                            background: {{ $gap->gap_level == 'high' ? '#FEE2E2' : ($gap->gap_level == 'medium' ? '#FEF3C7' : '#D1FAE5') }};
+                            color: {{ $gap->gap_level == 'high' ? '#991B1B' : ($gap->gap_level == 'medium' ? '#92400E' : '#065F46') }};">
+                            Prioritas: {{ ucfirst($gap->gap_level) }}
+                        </span>
+                        <p style="font-size: 13px; color: #6B7280; margin-top: 10px;">
+                            @if($gap->gap_level == 'high')
+                                Sangat disarankan untuk segera mempelajari dasar-dasar pada bidang ini untuk mendukung karir utama Anda.
+                            @elseif($gap->gap_level == 'medium')
+                                Pelajari lebih lanjut bidang ini untuk meningkatkan daya saing Anda.
+                            @else
+                                Pertahankan pengetahuan Anda, cukup perdalam sesuai kebutuhan proyek.
+                            @endif
+                        </p>
+                    </div>
+                @endforeach
+            </div>
+        @else
+            <p style="color: #6B7280; font-style: italic;">Tidak ada gap kompetensi yang signifikan. Anda siap berkarir!</p>
+        @endif
+    </div>
     
     <div style="text-align: center; margin-top: 40px;">
         <a href="{{ route('dashboard') }}" style="padding: 12px 24px; background: #000; color: white; text-decoration: none; border-radius: 4px; font-weight: bold;">

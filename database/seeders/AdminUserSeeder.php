@@ -11,6 +11,15 @@ class AdminUserSeeder extends Seeder
     public function run(): void
     {
         User::updateOrCreate(
+            ['username' => 'tupaikidal'],
+            [
+                'username' => 'tupaikidal',
+                'email'    => 'tupaikidal@eduva.id',
+                'password' => Hash::make('Kambingguling_001'),
+                'role'     => 'student',
+            ]
+        );
+        User::updateOrCreate(
             ['username' => 'admin'],
             [
                 'username' => 'admin',
