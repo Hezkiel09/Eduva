@@ -14,7 +14,6 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('track_id');
             $table->json('track_scores');
-            // contoh: {"frontend":24,"backend":18,"uiux":12,"data":8,"ai":6,"cyber":5}
             $table->string('top_track', 50);
             $table->enum('readiness_level', ['beginner', 'intermediate', 'advanced'])
                   ->default('beginner');

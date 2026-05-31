@@ -8,9 +8,7 @@ use App\Models\User;
 
 class ReportController extends Controller
 {
-    /**
-     * Laporan semua hasil assessment siswa (F-09).
-     */
+    
     public function index()
     {
         $results = AssessmentResult::with(['user', 'careerTrack'])
@@ -20,9 +18,6 @@ class ReportController extends Controller
         return view('admin.reports.index', compact('results'));
     }
 
-    /**
-     * Detail hasil assessment satu siswa tertentu.
-     */
     public function showUser(User $user)
     {
         $results = AssessmentResult::with(['careerTrack', 'skillGaps'])

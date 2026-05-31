@@ -7,9 +7,7 @@ use App\Models\User;
 
 class UserController extends Controller
 {
-    /**
-     * Daftar semua pengguna (F-07: Manajemen Pengguna).
-     */
+   
     public function index()
     {
         $users = User::withCount('assessmentResults')
@@ -19,12 +17,9 @@ class UserController extends Controller
         return view('admin.users.index', compact('users'));
     }
 
-    /**
-     * Hapus pengguna (beserta data terkait via cascade).
-     */
+    
     public function destroy(User $user)
     {
-        // Cegah admin menghapus akunnya sendiri
         if ($user->id === auth()->id()) {
             return back()->with('error', 'Anda tidak dapat menghapus akun Anda sendiri.');
         }

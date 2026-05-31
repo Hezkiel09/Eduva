@@ -10,7 +10,7 @@ return new class extends Migration
     {
         Schema::create('career_tracks', function (Blueprint $table) {
             $table->id('track_id');
-            $table->string('slug')->unique(); // frontend, backend, uiux, data, ai, cyber
+            $table->string('slug')->unique(); 
             $table->string('title');
             $table->text('description')->nullable();
             $table->json('roadmap');

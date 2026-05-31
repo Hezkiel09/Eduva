@@ -32,8 +32,6 @@ class User extends Authenticatable
         ];
     }
 
-    // ── Relasi ─────────────────────────────────────────────
-
     public function answers()
     {
         return $this->hasMany(Answer::class, 'user_id', 'id');
@@ -48,8 +46,6 @@ class User extends Authenticatable
     {
         return $this->hasMany(AssessmentResult::class, 'user_id', 'id');
     }
-
-    // ── Helper ─────────────────────────────────────────────
 
     public function isAdmin(): bool
     {

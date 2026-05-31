@@ -10,7 +10,6 @@ class IndustryTrendSeeder extends Seeder
     public function run(): void
     {
         $trends = [
-            // ── Frontend ──────────────────────────────────────────────
             [
                 'skill_name'   => 'React.js',
                 'category'     => 'Frontend',
@@ -36,7 +35,6 @@ class IndustryTrendSeeder extends Seeder
                 'description'  => 'Framework CSS utility-first yang mempercepat pengembangan UI secara signifikan.',
             ],
 
-            // ── Backend ───────────────────────────────────────────────
             [
                 'skill_name'   => 'Node.js / Express',
                 'category'     => 'Backend',
@@ -62,7 +60,6 @@ class IndustryTrendSeeder extends Seeder
                 'description'  => 'Kemampuan merancang dan membangun API yang clean, konsisten, dan mudah dikonsumsi.',
             ],
 
-            // ── Data Science ──────────────────────────────────────────
             [
                 'skill_name'   => 'Python (Data)',
                 'category'     => 'Data',
@@ -82,7 +79,7 @@ class IndustryTrendSeeder extends Seeder
                 'description'  => 'Kemampuan menyajikan data dalam bentuk visual yang informatif menggunakan tools seperti Tableau atau Power BI.',
             ],
 
-            // ── AI / Machine Learning ─────────────────────────────────
+
             [
                 'skill_name'   => 'Machine Learning',
                 'category'     => 'AI',
@@ -102,7 +99,6 @@ class IndustryTrendSeeder extends Seeder
                 'description'  => 'Dibutuhkan di industri manufaktur, keamanan, dan kesehatan untuk pemrosesan gambar otomatis.',
             ],
 
-            // ── Cyber Security ────────────────────────────────────────
             [
                 'skill_name'   => 'Penetration Testing',
                 'category'     => 'Cyber',
@@ -122,7 +118,6 @@ class IndustryTrendSeeder extends Seeder
                 'description'  => 'Kemampuan memantau, mendeteksi, dan merespon insiden keamanan secara real-time.',
             ],
 
-            // ── UI/UX ─────────────────────────────────────────────────
             [
                 'skill_name'   => 'Figma',
                 'category'     => 'UI/UX',

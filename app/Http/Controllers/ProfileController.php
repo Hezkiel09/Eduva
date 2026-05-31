@@ -8,9 +8,7 @@ use Illuminate\Validation\Rule;
 
 class ProfileController extends Controller
 {
-    /**
-     * Tampilkan halaman profil pengguna beserta riwayat singkat.
-     */
+   
     public function show()
     {
         $user = Auth::user()->load('assessmentResults.careerTrack');
@@ -18,9 +16,7 @@ class ProfileController extends Controller
         return view('profile.show', compact('user'));
     }
 
-    /**
-     * Update data profil (username & email).
-     */
+  
     public function update(Request $request)
     {
         $user = Auth::user();

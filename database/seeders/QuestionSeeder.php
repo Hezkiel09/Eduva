@@ -1,5 +1,5 @@
 <?php
-// database/seeders/QuestionSeeder.php
+
 
 namespace Database\Seeders;
 
@@ -10,11 +10,9 @@ class QuestionSeeder extends Seeder
 {
     public function run(): void
     {
-        // Ambil assessment_id yang baru dibuat
         $assessmentId = DB::table('assessments')->first()->assessment_id;
 
         $questions = [
-            // ── KELOMPOK 1: Minat & Aktivitas (Soal 1-5) ──────────────
             [
                 'text' => 'Ketika punya waktu luang, kamu lebih suka ngapain?',
                 'options' => [
@@ -61,7 +59,6 @@ class QuestionSeeder extends Seeder
                 ]
             ],
 
-            // ── KELOMPOK 2: Cara Berpikir (Soal 6-9) ──────────────────
             [
                 'text' => 'Ketika nemuin bug di kode, reaksi pertama kamu?',
                 'options' => [
@@ -99,7 +96,6 @@ class QuestionSeeder extends Seeder
                 ]
             ],
 
-            // ── KELOMPOK 3: Tools & Teknologi (Soal 10-12) ────────────
             [
                 'text' => 'Tool atau software mana yang paling ingin kamu kuasai?',
                 'options' => [
@@ -128,7 +124,6 @@ class QuestionSeeder extends Seeder
                 ]
             ],
 
-            // ── KELOMPOK 4: Nilai & Motivasi (Soal 13-15) ─────────────
             [
                 'text' => 'Apa yang paling bikin kamu puas setelah selesai ngerjain sesuatu?',
                 'options' => [
