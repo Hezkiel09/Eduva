@@ -11,7 +11,7 @@ return new class extends Migration
         Schema::create('industry_trends', function (Blueprint $table) {
             $table->id('trend_id');
             $table->string('skill_name', 100);
-            $table->string('category', 50); // e.g. "Frontend", "Backend", "AI", "Data", "Cyber", "UI/UX"
+            $table->string('category', 50);
             $table->enum('demand_level', ['high', 'medium', 'low'])->default('medium');
             $table->text('description')->nullable();
             $table->timestamp('created_at')->useCurrent();

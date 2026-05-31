@@ -9,9 +9,6 @@ use Illuminate\Http\Request;
 
 class BootcampController extends Controller
 {
-    /**
-     * Daftar semua bootcamp / rekomendasi pembelajaran.
-     */
     public function index()
     {
         $bootcamps = Bootcamp::with('careerTrack')->orderBy('track_id')->get();
@@ -19,9 +16,6 @@ class BootcampController extends Controller
         return view('admin.bootcamps.index', compact('bootcamps'));
     }
 
-    /**
-     * Form tambah bootcamp baru.
-     */
     public function create()
     {
         $tracks = CareerTrack::all();
@@ -29,9 +23,6 @@ class BootcampController extends Controller
         return view('admin.bootcamps.create', compact('tracks'));
     }
 
-    /**
-     * Simpan bootcamp baru ke database.
-     */
     public function store(Request $request)
     {
         $validated = $request->validate([
@@ -47,9 +38,6 @@ class BootcampController extends Controller
             ->with('success', 'Rekomendasi pembelajaran berhasil ditambahkan.');
     }
 
-    /**
-     * Form edit bootcamp.
-     */
     public function edit(Bootcamp $bootcamp)
     {
         $tracks = CareerTrack::all();
@@ -57,9 +45,6 @@ class BootcampController extends Controller
         return view('admin.bootcamps.edit', compact('bootcamp', 'tracks'));
     }
 
-    /**
-     * Update bootcamp.
-     */
     public function update(Request $request, Bootcamp $bootcamp)
     {
         $validated = $request->validate([
@@ -75,9 +60,6 @@ class BootcampController extends Controller
             ->with('success', 'Rekomendasi pembelajaran berhasil diperbarui.');
     }
 
-    /**
-     * Hapus bootcamp.
-     */
     public function destroy(Bootcamp $bootcamp)
     {
         $bootcamp->delete();

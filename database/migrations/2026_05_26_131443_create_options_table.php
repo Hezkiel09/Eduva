@@ -6,9 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
+
     public function up(): void
     {
          Schema::create('options', function (Blueprint $table) {
@@ -16,7 +14,7 @@ return new class extends Migration
             $table->unsignedBigInteger('question_id');
             $table->string('option_text');
             $table->json('scores');
-            // contoh scores: {"frontend":2,"backend":0,"uiux":1,"data":0,"ai":0,"cyber":0}
+            
 
             $table->foreign('question_id')
                   ->references('question_id')
@@ -25,9 +23,6 @@ return new class extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('options');

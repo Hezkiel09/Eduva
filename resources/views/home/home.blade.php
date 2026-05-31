@@ -649,7 +649,7 @@
         </a>
         <ul class="nav-menu">
             <li><a href="#">Home</a></li>
-            <li><a href="#">Assessment</a></li>
+            <li><a href="{{ route('assessment.index') }}">Assessment</a></li>
             <li><a href="#">Career Match</a></li>
             <li><a href="#">Learning Path</a></li>
         </ul>
