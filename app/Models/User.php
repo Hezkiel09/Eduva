@@ -2,35 +2,57 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Database\Factories\UserFactory;
-use Illuminate\Database\Eloquent\Attributes\Fillable;
-use Illuminate\Database\Eloquent\Attributes\Hidden;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-#[Fillable(['username', 'email', 'password'])]
-#[Hidden(['password', 'remember_token'])]
 class User extends Authenticatable
 {
     /** @use HasFactory<UserFactory> */
     use HasFactory, Notifiable;
 
-    /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
-     */
+    protected $fillable = [
+        'username',
+        'email',
+        'password',
+        'role',
+    ];
 
-    public function answers(){
-        return $this->hasMany(Answer::class, 'user_id', 'id');
-    }
+    protected $hidden = [
+        'password',
+        'remember_token',
+    ];
+
     protected function casts(): array
     {
         return [
             'email_verified_at' => 'datetime',
-            'password' => 'hashed',
+            'password'          => 'hashed',
         ];
+    }
+
+    // ── Relasi ─────────────────────────────────────────────
+
+    public function answers()
+    {
+        return $this->hasMany(Answer::class, 'user_id', 'id');
+    }
+
+    public function assessmentSessions()
+    {
+        return $this->hasMany(AssessmentSession::class, 'user_id', 'id');
+    }
+
+    public function assessmentResults()
+    {
+        return $this->hasMany(AssessmentResult::class, 'user_id', 'id');
+    }
+
+    // ── Helper ─────────────────────────────────────────────
+
+    public function isAdmin(): bool
+    {
+        return $this->role === 'admin';
     }
 }
