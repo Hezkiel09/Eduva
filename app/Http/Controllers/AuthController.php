@@ -25,7 +25,8 @@ class AuthController extends Controller
             'username' => 'required|string|max:50|unique:users',
             'email'    => 'required|email|unique:users',
             // SRS SC-02: min 8 char, 1 uppercase, 1 digit
-            'password' => ['required', 'min:8', 'regex:/[A-Z]/', 'regex:/[0-9]/'],
+            'password' => ['required', 'min:8', 'regex:/[A-Z]/', 'regex:/[0-9]/', 'confirmed'],
+            'terms'    => 'accepted',
         ]);
 
         User::create([
