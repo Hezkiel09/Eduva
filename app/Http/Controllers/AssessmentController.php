@@ -143,7 +143,7 @@ class AssessmentController extends Controller
         $session = AssessmentSession::where('session_id', $sessionId)
             ->where('user_id', Auth::id())
             ->where('session_status', 'in_progress')
-            ->with('answers.option') // ambil semua jawaban + options sekaligus
+            ->with('answers.option') 
             ->firstOrFail();
 
         $scores = [
@@ -184,8 +184,29 @@ class AssessmentController extends Controller
         ]);
 
         $maxScore = max($scores);
+        
+        $relatedTracks = [
+            'frontend' => ['uiux', 'backend'],
+            'backend'  => ['frontend', 'data', 'cyber'],
+            'uiux'     => ['frontend'],
+            'data'     => ['backend', 'ai'],
+            'ai'       => ['data', 'backend'],
+            'cyber'    => ['backend', 'data'],
+        ];
+
+        $trackNameMap = [
+            'frontend' => 'Frontend Development',
+            'backend'  => 'Backend Development',
+            'uiux'     => 'Desain UI/UX',
+            'data'     => 'Data Analysis',
+            'ai'       => 'Kecerdasan Buatan (AI)',
+            'cyber'    => 'Cyber Security',
+        ];
+
+        $relevantToTop = $relatedTracks[$topTrack] ?? [];
+
         foreach ($scores as $track => $score) {
-            if ($track !== $topTrack) {
+            if ($track !== $topTrack && in_array($track, $relevantToTop)) {
                 $percentage = $maxScore > 0 ? ($score / $maxScore) * 100 : 0;
                 $gapLevel = match (true) {
                     $percentage < 30 => 'high',
@@ -195,7 +216,7 @@ class AssessmentController extends Controller
 
                 SkillGap::create([
                     'result_id'  => $result->result_id,
-                    'skill_name' => $careerTrack->title . ' — ' . ucfirst($track),
+                    'skill_name' => $trackNameMap[$track],
                     'gap_level'  => $gapLevel,
                 ]);
             }
