@@ -11,10 +11,20 @@ class RoleMiddleware
     /**
      * Handle an incoming request.
      *
+     * Usage in routes: ->middleware('role:admin')
+     *
      * @param  Closure(Request): (Response)  $next
      */
-    public function handle(Request $request, Closure $next): Response
+    public function handle(Request $request, Closure $next, string ...$roles): Response
     {
+        if (! $request->user()) {
+            return redirect()->route('login');
+        }
+
+        if (! in_array($request->user()->role, $roles)) {
+            abort(403, 'Akses ditolak. Anda tidak memiliki izin untuk mengakses halaman ini.');
+        }
+
         return $next($request);
     }
 }

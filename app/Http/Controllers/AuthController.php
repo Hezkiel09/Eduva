@@ -22,52 +22,49 @@ class AuthController extends Controller
     public function signup(Request $request)
     {
         $validated = $request->validate([
-            'username' => 'required|unique:users',
-            'email' => 'nullable|email|unique:users',
-            'password' => 'required|min:6'
+            'username' => 'required|string|max:50|unique:users',
+            'email'    => 'nullable|email|unique:users',
+            // SRS SC-02: min 8 char, 1 uppercase, 1 digit
+            'password' => ['required', 'min:8', 'regex:/[A-Z]/', 'regex:/[0-9]/'],
         ]);
 
         User::create([
-            'name' => $validated['name'],
             'username' => strtolower($validated['username']),
-            'email' => $validated['email'] ?? null,
-            'password' => Hash::make($validated['password'])
+            'email'    => $validated['email'] ?? null,
+            'password' => Hash::make($validated['password']),
         ]);
 
-        return redirect()->route('login');
+        return redirect()->route('login')
+            ->with('success', 'Akun berhasil dibuat. Silakan login.');
     }
 
     public function login(Request $request)
-{
-    $credentials = $request->validate([
-        'username' => 'required',
-        'password' => 'required'
-    ]);
+    {
+        $credentials = $request->validate([
+            'username' => 'required|string',
+            'password' => 'required|string',
+        ]);
 
-    
-    $credentials['username'] = strtolower($credentials['username']);
+        $credentials['username'] = strtolower($credentials['username']);
 
-    if (Auth::attempt($credentials)) {
+        if (Auth::attempt($credentials, $request->boolean('remember'))) {
+            $request->session()->regenerate();
 
-        $request->session()->regenerate();
+            return redirect()->intended(route('dashboard'));
+        }
 
-        return redirect()->route('home');
+        return back()->withErrors([
+            'username' => 'Email atau password yang Anda masukkan salah. Periksa kembali dan coba lagi.',
+        ])->onlyInput('username');
     }
-
-    return back()->withErrors([
-        'username' => 'ID atau password salah'
-    ]);
-}
 
     public function logout(Request $request)
     {
         Auth::logout();
 
         $request->session()->invalidate();
-
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect()->route('home');
     }
 }
-
