@@ -13,12 +13,15 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware): void {
         $middleware->redirectGuestsTo('/login');
-        $middleware->redirectUsersTo('/dashboard');
+        $middleware->redirectUsersTo('/');
 
         // Daftarkan alias 'role' untuk RoleMiddleware
         $middleware->alias([
             'role' => RoleMiddleware::class,
+            'prevent-back-history' => \App\Http\Middleware\PreventBackHistory::class,
         ]);
+
+        $middleware->appendToGroup('web', \App\Http\Middleware\PreventBackHistory::class);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //

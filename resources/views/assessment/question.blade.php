@@ -1,71 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-<style>
-    .layout-split {
-        display: flex;
-        gap: 30px;
-        align-items: flex-start;
-    }
-    .sidebar {
-        width: 250px;
-        background: white;
-        padding: 20px;
-        border-radius: 8px;
-        border: 1px solid #ddd;
-    }
-    .main-content {
-        flex: 1;
-        background: white;
-        padding: 30px;
-        border-radius: 8px;
-        border: 1px solid #ddd;
-    }
-    .progress-bar-container {
-        background-color: #e0e0e0;
-        border-radius: 10px;
-        height: 8px;
-        width: 100%;
-        margin-top: 10px;
-    }
-    .progress-bar {
-        background-color: #2563EB;
-        height: 100%;
-        border-radius: 10px;
-    }
-    .option-card {
-        display: block;
-        padding: 15px;
-        border: 1px solid #ccc;
-        border-radius: 6px;
-        margin-bottom: 15px;
-        cursor: pointer;
-    }
-    .option-card:hover {
-        background-color: #f9f9f9;
-        border-color: #2563EB;
-    }
-    .btn-nav {
-        background: white;
-        border: 1px solid #ccc;
-        padding: 10px 20px;
-        border-radius: 4px;
-        cursor: pointer;
-        text-decoration: none;
-        color: #333;
-        font-weight: bold;
-    }
-    .btn-next {
-        background: #000;
-        color: white;
-        border: none;
-    }
-    .nav-buttons {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 30px;
-    }
-</style>
+@push('styles')
+<link rel="stylesheet" href="{{ asset('css/assessment.css') }}">
+@endpush
 
 <div class="layout-split">
     <!-- Sidebar / Progress -->
