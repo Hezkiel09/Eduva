@@ -25,17 +25,28 @@ class AuthController extends Controller
             'username' => 'required|string|max:50|unique:users',
             'email'    => 'required|email|unique:users',
             // SRS SC-02: min 8 char, 1 uppercase, 1 digit
-            'password' => ['required', 'min:8', 'regex:/[A-Z]/', 'regex:/[0-9]/'],
+            'password' => ['required', 'min:8', 'regex:/[A-Z]/', 'regex:/[0-9]/', 'confirmed'],
+            'terms'    => 'accepted',
         ]);
 
-        User::create([
-            'username' => strtolower($validated['username']),
-            'email'    => $validated['email'] ?? null,
-            'password' => Hash::make($validated['password']),
+        $code = \App\Http\Controllers\VerificationController::generateCode();
+
+        $user = User::create([
+            'username'                     => strtolower($validated['username']),
+            'email'                        => $validated['email'],
+            'password'                     => Hash::make($validated['password']),
+            'verification_code'            => $code,
+            'verification_code_expires_at' => now()->addMinutes(10),
         ]);
 
-        return redirect()->route('login')
-            ->with('success', 'Akun berhasil dibuat. Silakan login.');
+        // Kirim email verifikasi
+        \Illuminate\Support\Facades\Mail::to($user->email)
+            ->send(new \App\Mail\VerificationCodeMail($code, $user->username));
+
+        // Simpan user id di session untuk proses verify
+        $request->session()->put('pending_user_id', $user->id);
+
+        return redirect()->route('verify.show');
     }
 
     public function login(Request $request)
