@@ -14,7 +14,6 @@
             align-items: center;
         }
 
-        /* ── LEFT: form ── */
         .verify-panel {
             padding: 20px 0;
         }
@@ -47,7 +46,6 @@
             max-width: 420px;
         }
 
-        /* ── Code field ── */
         .verify-form {
             display: grid;
             gap: 20px;
@@ -91,7 +89,6 @@
         .verify-field input:focus ~ label {
             color: #2563EB;
         }
-        /* eye toggle */
         .field-toggle {
             position: absolute;
             right: 16px;
@@ -106,7 +103,6 @@
             align-items: center;
         }
 
-        /* ── Resend ── */
         .resend-row {
             font-size: 0.93rem;
             color: #475569;
@@ -119,7 +115,6 @@
         }
         .resend-row a:hover { text-decoration: underline; }
 
-        /* ── Actions ── */
         .verify-actions {
             margin-top: 8px;
         }
@@ -131,7 +126,6 @@
             font-weight: 700;
         }
 
-        /* ── Error / Success ── */
         .verify-alert {
             padding: 14px 18px;
             border-radius: 12px;
@@ -149,7 +143,6 @@
             border: 1px solid #6EE7B7;
         }
 
-        /* ── RIGHT: illustration ── */
         .verify-illustration {
             background: #F1F5F9;
             border-radius: 36px;
@@ -168,7 +161,6 @@
             display: block;
         }
 
-        /* ── Responsive ── */
         @media (max-width: 992px) {
             .verify-grid { grid-template-columns: 1fr; }
             .verify-illustration { min-height: 300px; }
@@ -182,7 +174,6 @@
     <div class="page-container verify-page">
         <div class="verify-grid">
 
-            {{-- LEFT: form --}}
             <div class="verify-panel">
                 <a href="{{ route('login') }}" class="back-link">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
@@ -194,7 +185,6 @@
                 <h1>Verify code</h1>
                 <p class="subtitle">An authentication code has been sent to your email.</p>
 
-                {{-- Alert messages --}}
                 @if ($errors->any())
                     <div class="verify-alert error" style="margin-bottom: 20px;">
                         {{ $errors->first() }}
@@ -210,7 +200,6 @@
                 <form method="POST" action="{{ route('verify.submit') }}" class="verify-form">
                     @csrf
 
-                    {{-- Code input --}}
                     <div class="verify-field">
                         <label>Enter Code</label>
                         <input
@@ -232,20 +221,17 @@
                         </button>
                     </div>
 
-                    {{-- Resend --}}
                     <p class="resend-row">
                         Didn't receive a code?
                         <a href="{{ route('verify.resend') }}">Resend</a>
                     </p>
 
-                    {{-- Submit --}}
                     <div class="verify-actions">
                         <button type="submit" class="btn btn-primary">Verify</button>
                     </div>
                 </form>
             </div>
 
-            {{-- RIGHT: illustration --}}
             <div class="verify-illustration">
                 <img src="{{ asset('img/register/verification.png') }}" alt="Verify your account" />
             </div>

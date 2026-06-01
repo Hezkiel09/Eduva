@@ -1,4 +1,3 @@
-/* Index / General Assessment Styles */
 .assessment-banner {
     background-color: #1E3A8A;
     color: white;
@@ -54,7 +53,6 @@
     border-radius: 4px;
 }
 
-/* Result Styles */
 .result-container {
     max-width: 800px;
     margin: 30px auto;

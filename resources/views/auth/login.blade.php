@@ -10,13 +10,11 @@
     <div class="page-container login-page">
         <div class="login-grid">
 
-            {{-- LEFT: two stacked photos --}}
             <div class="login-photos">
                 <img src="{{ asset('img/asset_login/image 12.png') }}" alt="Eduva students" />
                 <img src="{{ asset('img/asset_login/image 13.png') }}" alt="Eduva learning" />
             </div>
 
-            {{-- RIGHT: form --}}
             <div class="login-panel">
                 <h1 class="welcome-title">Welcome to <span>EDU</span>VA!</h1>
                 <h2>Login Here!</h2>
@@ -32,7 +30,6 @@
                 <form method="POST" action="{{ route('login') }}" class="login-form">
                     @csrf
 
-                    {{-- Email --}}
                     <div class="login-field">
                         <label>Email</label>
                         <input
@@ -45,7 +42,6 @@
                         />
                     </div>
 
-                    {{-- Password --}}
                     <div class="login-field">
                         <label>Password</label>
                         <input
@@ -63,7 +59,6 @@
                         </button>
                     </div>
 
-                    {{-- Remember + Forgot --}}
                     <div class="login-meta">
                         <label class="remember-label">
                             <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }} />
