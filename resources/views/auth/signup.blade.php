@@ -3,170 +3,22 @@
 @section('title', 'Daftar - Eduva')
 
 @section('content')
-    <style>
-        .signup-page {
-            padding: 80px 0;
-        }
-        .signup-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 42px;
-            align-items: center;
-        }
-        .signup-hero {
-            background: #F8FAFC;
-            border-radius: 36px;
-            overflow: hidden;
-            box-shadow: 0 40px 120px rgba(15, 23, 42, 0.12);
-            min-height: 720px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .signup-hero img {
-            width: 100%;
-            height: auto;
-            display: block;
-            object-fit: cover;
-        }
-        .signup-panel {
-            background: #ffffff;
-            border-radius: 36px;
-            box-shadow: 0 40px 120px rgba(15, 23, 42, 0.08);
-            padding: 52px;
-        }
-        .signup-eyebrow {
-            display: inline-flex;
-            align-items: center;
-            padding: 0.75rem 1rem;
-            border-radius: 9999px;
-            background: #EFF6FF;
-            color: #2563EB;
-            font-size: 0.88rem;
-            font-weight: 700;
-            margin-bottom: 18px;
-        }
-        .signup-panel h1 {
-            margin: 0;
-            font-size: clamp(2.8rem, 3.4vw, 3.6rem);
-            line-height: 1.02;
-            font-weight: 800;
-            color: #0F172A;
-        }
-        .signup-subtitle {
-            margin: 18px 0 36px;
-            color: #475569;
-            line-height: 1.8;
-            max-width: 540px;
-        }
-        .signup-form {
-            display: grid;
-            gap: 22px;
-        }
-        .signup-row {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 18px;
-        }
-        .signup-field {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            font-weight: 600;
-            color: #334155;
-        }
-        .signup-field input {
-            width: 100%;
-            border: 1px solid #CBD5E1;
-            border-radius: 16px;
-            padding: 15px 18px;
-            font-size: 0.98rem;
-            color: #0F172A;
-            background: #F8FAFC;
-        }
-        .signup-field input:focus {
-            outline: none;
-            border-color: #2563EB;
-            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
-        }
-        .checkbox-row {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            color: #475569;
-            margin-top: 4px;
-        }
-        .checkbox-row input {
-            width: 18px;
-            height: 18px;
-            border: 1px solid #CBD5E1;
-            border-radius: 6px;
-        }
-        .signup-actions {
-            margin-top: 24px;
-            display: grid;
-            gap: 16px;
-        }
-        .signup-actions .btn-primary {
-            width: 100%;
-            padding: 16px 0;
-            border-radius: 16px;
-            font-size: 1rem;
-        }
-        .signup-note {
-            text-align: center;
-            color: #64748B;
-            margin: 0;
-        }
-        .signup-note a {
-            color: #2563EB;
-            font-weight: 700;
-        }
-        .signup-social {
-            margin-top: 36px;
-            display: grid;
-            gap: 14px;
-            text-align: center;
-        }
-        .social-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 14px;
-        }
-        .social-grid a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            border: 1px solid #CBD5E1;
-            border-radius: 14px;
-            padding: 14px 0;
-            color: #0F172A;
-            background: #ffffff;
-        }
-        @media (max-width: 992px) {
-            .signup-grid {
-                grid-template-columns: 1fr;
-            }
-            .signup-panel {
-                padding: 34px 28px;
-            }
-            .signup-hero {
-                min-height: 420px;
-            }
-        }
-    </style>
+    <div class="page-container" style="padding: 60px 0;">
+        <div class="grid md:grid-cols-2 gap-10 items-center" style="align-items: stretch;">
+            <div style="display: flex; justify-content: center; align-items: center;">
+                <div style="width: 100%; max-width: 520px; background: #ffffff; border-radius: 32px; overflow: hidden; box-shadow: 0 28px 90px rgba(15, 23, 42, 0.14);">
+                        <img src="{{ asset('img/register/Group 4.png') }}" alt="Eduva signup illustration" style="width: 100%; display: block; object-fit: cover;" />
 
-    <div class="page-container signup-page">
-        <div class="signup-grid">
-            <div class="signup-hero">
-                <img src="{{ asset('img/register/Group 4.png') }}" alt="Eduva signup illustration" />
-            </div>
+            <section style="background: #ffffff; border-radius: 32px; box-shadow: 0 28px 90px rgba(15, 23, 42, 0.08); padding: 44px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px; gap: 16px; flex-wrap: wrap;">
+                    <div>
+                        <p style="font-size: 0.95rem; color: #64748B; margin-bottom: 10px;">Buat akun Eduva</p>
+                        <h1 style="margin: 0; font-size: clamp(2.2rem, 3vw, 3rem); line-height: 1.05; font-weight: 800; color: #0F172A;">Daftar</h1>
+                    </div>
+                    <img src="{{ asset('img/asset_login/logo eduva.png') }}" alt="Eduva logo" style="height: 48px; width: auto;" />
+                </div>
 
-            <div class="signup-panel">
-                <span class="signup-eyebrow">Daftar Sekarang</span>
-                <h1>Sign up</h1>
-                <p class="signup-subtitle">Let's get you all set up so you can access your personal account.</p>
+                <p style="color: #64748B; line-height: 1.8; margin-bottom: 32px;">Isi data Anda untuk membuat akun. Setelah terdaftar, Anda bisa masuk dan mulai mengerjakan assessment serta melihat rekomendasi karir.</p>
 
                 @if ($errors->any())
                     <div style="margin-bottom: 24px; padding: 18px 20px; border-radius: 20px; background: #FEE2E2; color: #B91C1C; border: 1px solid #FCA5A5;">
@@ -181,49 +33,49 @@
 
                 <form method="POST" action="{{ route('register') }}">
                     @csrf
-                    <div class="signup-form">
-                        <div class="signup-row">
-                            <label class="signup-field">
-                                Username
-                                <input type="text" name="username" value="{{ old('username') }}" placeholder="john.doe" required />
-                            </label>
-                            <label class="signup-field">
-                                Email
-                                <input type="email" name="email" value="{{ old('email') }}" placeholder="john.doe@gmail.com" required />
-                            </label>
-                        </div>
 
-                        <div class="signup-row">
-                            <label class="signup-field">
-                                Password
-                                <input type="password" name="password" placeholder="Minimal 8 karakter" required />
-                            </label>
-                            <label class="signup-field">
-                                Confirm Password
-                                <input type="password" name="password_confirmation" placeholder="Masukkan ulang password" required />
-                            </label>
-                        </div>
+                    <div style="display: grid; gap: 18px;">
+                        <label style="display: flex; flex-direction: column; gap: 10px; font-weight: 600; color: #334155;">
+                            Username
+                            <input type="text" name="username" value="{{ old('username') }}" placeholder="john.doe" required style="width: 100%; border: 1px solid #CBD5E1; border-radius: 14px; padding: 14px 16px; font-size: 0.95rem;" />
+                        </label>
 
-                        <label class="checkbox-row">
-                            <input type="checkbox" name="terms" required />
-                            I agree to all the <a href="#">Terms</a> and <a href="#">Privacy Policies</a>
+                        <label style="display: flex; flex-direction: column; gap: 10px; font-weight: 600; color: #334155;">
+                            Email
+                            <input type="email" name="email" value="{{ old('email') }}" placeholder="john.doe@gmail.com" required style="width: 100%; border: 1px solid #CBD5E1; border-radius: 14px; padding: 14px 16px; font-size: 0.95rem;" />
+                        </label>
+
+                        <label style="display: flex; flex-direction: column; gap: 10px; font-weight: 600; color: #334155;">
+                            Password
+                            <input type="password" name="password" placeholder="Minimal 8 karakter" required style="width: 100%; border: 1px solid #CBD5E1; border-radius: 14px; padding: 14px 16px; font-size: 0.95rem;" />
+                        </label>
+
+                        <label style="display: flex; flex-direction: column; gap: 10px; font-weight: 600; color: #334155;">
+                            Konfirmasi Password
+                            <input type="password" name="password_confirmation" placeholder="Masukkan ulang password" required style="width: 100%; border: 1px solid #CBD5E1; border-radius: 14px; padding: 14px 16px; font-size: 0.95rem;" />
+                        </label>
+
+                        <label style="display: inline-flex; align-items: center; gap: 12px; color: #475569;">
+                            <input type="checkbox" name="terms" required style="width: 18px; height: 18px; border: 1px solid #CBD5E1; border-radius: 6px;" />
+                            Saya setuju dengan <a href="#" style="color: #2563EB;">Syarat dan Ketentuan</a> serta <a href="#" style="color: #2563EB;">Kebijakan Privasi</a>
                         </label>
                     </div>
 
-                    <div class="signup-actions">
-                        <button type="submit" class="btn btn-primary">Create account</button>
-                        <p class="signup-note">Already have an account? <a href="{{ route('login') }}">Login</a></p>
+                    <div style="margin-top: 20px; display: flex; flex-direction: column; gap: 18px;">
+                        <button type="submit" class="btn btn-primary" style="width: 100%; border-radius: 16px; padding: 16px;">Buat akun</button>
+
+                        <p style="text-align: center; color: #64748B; margin: 0;">Sudah punya akun? <a href="{{ route('login') }}" style="color: #2563EB; font-weight: 700;">Masuk</a></p>
                     </div>
                 </form>
 
-                <div class="signup-social">
-                    <span>Or Sign up with</span>
-                    <div class="social-grid">
-                        <a href="#">Google</a>
-                        <a href="#">Apple</a>
+                <div style="margin-top: 32px; display: grid; gap: 14px; text-align: center;">
+                    <span style="color: #94A3B8;">Atau daftar dengan</span>
+                    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px;">
+                        <a href="#" style="display: inline-flex; align-items: center; justify-content: center; gap: 10px; border: 1px solid #CBD5E1; border-radius: 14px; padding: 14px 0; color: #0F172A;">Google</a>
+                        <a href="#" style="display: inline-flex; align-items: center; justify-content: center; gap: 10px; border: 1px solid #CBD5E1; border-radius: 14px; padding: 14px 0; color: #0F172A;">Apple</a>
                     </div>
                 </div>
-            </div>
+            </section>
         </div>
     </div>
 @endsection

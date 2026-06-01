@@ -559,6 +559,16 @@
             margin-top: 16px;
         }
 
+        /* ── signup & login grid: selalu 2 kolom di desktop ── */
+        .signup-grid,
+        .login-grid,
+        .verify-grid {
+            display: grid !important;
+            grid-template-columns: 1fr 1fr !important;
+            gap: 42px !important;
+            align-items: stretch !important;
+        }
+
         @media (max-width: 1024px) {
             .header-inner { flex-wrap: wrap; }
             .nav-links { gap: 18px; }
@@ -576,6 +586,11 @@
             .about-grid { grid-template-columns: 1fr; }
             .about-top-card, .about-main-card { min-height: 220px; }
             .section-features, .section-about { padding: 60px 0; }
+            .signup-grid,
+            .login-grid,
+            .verify-grid {
+                grid-template-columns: 1fr !important;
+            }
         }
 
         @media (min-width: 768px) {

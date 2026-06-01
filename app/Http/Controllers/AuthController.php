@@ -29,14 +29,24 @@ class AuthController extends Controller
             'terms'    => 'accepted',
         ]);
 
-        User::create([
-            'username' => strtolower($validated['username']),
-            'email'    => $validated['email'] ?? null,
-            'password' => Hash::make($validated['password']),
+        $code = \App\Http\Controllers\VerificationController::generateCode();
+
+        $user = User::create([
+            'username'                     => strtolower($validated['username']),
+            'email'                        => $validated['email'],
+            'password'                     => Hash::make($validated['password']),
+            'verification_code'            => $code,
+            'verification_code_expires_at' => now()->addMinutes(10),
         ]);
 
-        return redirect()->route('login')
-            ->with('success', 'Akun berhasil dibuat. Silakan login.');
+        // Kirim email verifikasi
+        \Illuminate\Support\Facades\Mail::to($user->email)
+            ->send(new \App\Mail\VerificationCodeMail($code, $user->username));
+
+        // Simpan user id di session untuk proses verify
+        $request->session()->put('pending_user_id', $user->id);
+
+        return redirect()->route('verify.show');
     }
 
     public function login(Request $request)
