@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
-@section('content')
 @push('styles')
 <link rel="stylesheet" href="{{ asset('css/assessment.css') }}">
 @endpush
+@section('content')
 
 <div class="layout-split">
     <!-- Sidebar / Progress -->
