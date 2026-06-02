@@ -80,14 +80,14 @@
         <!-- UI/UX -->
         <div class="lp-card">
             <div class="lp-card-img">
-                <img src="{{ asset('img/learningpath/uiux.png') }}" alt="UI/UX Designer">
+                <img src="{{ asset('img/learningpath/uiux.png') }}" alt="Desainer UI/UX">
             </div>
             <div class="lp-card-body">
-                <div class="lp-card-title">UI/UX Designer</div>
-                <div class="lp-card-desc">Create empathetic, user-centric designs and interactive prototypes...</div>
+                <div class="lp-card-title">Desainer UI/UX</div>
+                <div class="lp-card-desc">Rancang tampilan aplikasi yang menarik, mudah digunakan, dan ciptakan prototipe interaktif yang berpusat pada pengguna...</div>
                 <div class="lp-card-footer">
-                    <div class="lp-duration">⏱ 5-7 Months</div>
-                    <a href="https://roadmap.sh/ux-design" class="lp-btn">Select Track</a>
+                    <div class="lp-duration">⏱ 5-7 Bulan</div>
+                    <a href="https://roadmap.sh/ux-design" class="lp-btn">Pilih Jalur</a>
                 </div>
             </div>
         </div>

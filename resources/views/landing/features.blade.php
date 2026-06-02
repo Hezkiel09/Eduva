@@ -15,8 +15,8 @@
                         <path d="M8 12a4 4 0 1 1 8 0" />
                     </svg>
                 </div>
-                <h3>Asesmen Psikologi</h3>
-                <p>Pahami minat dan bakat Anda melalui serangkaian tes psikologi berbasis AI yang akurat dan mendalam.</p>
+                <h3>Asesmen</h3>
+                <p>Temukan jalur karier yang sesuai melalui asesmen komprehensif yang mengidentifikasi minat, bakat, dan potensi Anda.</p>
             </article>
 
             <article class="feature-card">
@@ -29,7 +29,7 @@
                     </svg>
                 </div>
                 <h3>Info Lowongan Kerja</h3>
-                <p>Akses ribuan peluang kerja dan magang dari mitra industri ternama yang sesuai dengan profil keahlian Anda.</p>
+                <p>Akses peluang kerja dan magang dari mitra industri ternama yang sesuai dengan profil keahlian Anda.</p>
             </article>
 
             <article class="feature-card">
@@ -39,8 +39,8 @@
                         <path d="M6 12v5c3 3 9 3 12 0v-5" />
                     </svg>
                 </div>
-                <h3>Modul Pelatihan</h3>
-                <p>Tingkatkan keterampilan teknis Anda dengan modul pembelajaran praktis yang disusun oleh para ahli industri.</p>
+                <h3>Alur Belajar</h3>
+                <p>Dapatkan pengalaman belajar yang lebih terarah melalui roadmap pembelajaran yang disusun sesuai standar industri.</p>
             </article>
         </div>
     </div>
