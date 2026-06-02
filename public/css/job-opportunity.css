@@ -11,7 +11,7 @@
 .jo-hero-overlay {
     position: absolute;
     inset: 0;
-    background: url("../img/landingpage/image 14.png") center/cover no-repeat;
+    background: url("../img/jobkarir/latarblkg_jobkarir.jpg") center/cover no-repeat;
     opacity: 0.15;
     mix-blend-mode: overlay;
     z-index: 1;
