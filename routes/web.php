@@ -21,6 +21,10 @@ Route::get('/learning-path', function () {
     return view('learning-path');
 })->name('learning-path');
 
+Route::get('/job-opportunity', function () {
+    return view('job-opportunity');
+})->name('job-opportunity');
+
 Route::middleware('guest')->group(function () {
 
     Route::get('/login', [AuthController::class, 'showLogin'])

@@ -22,9 +22,9 @@
 
         <div>
             <ul class="footer-links">
-                <li><a href="#">Asesmen</a></li>
-                <li><a href="#">Peluang Karir</a></li>
-                <li><a href="#">Jalur Belajar</a></li>
+                <li><a href="{{ route('assessment.index') }}">Asesmen</a></li>
+                <li><a href="{{ route('job-opportunity') }}">Peluang Karir</a></li>
+                <li><a href="{{ route('learning-path') }}">Jalur Belajar</a></li>
                 <li><a href="#">Profil</a></li>
             </ul>
         </div>

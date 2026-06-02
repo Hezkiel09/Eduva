@@ -7,7 +7,7 @@
         <nav class="nav-links">
             <a href="{{ route('home') }}">Beranda</a>
             <a href="{{ route('assessment.index') }}">Asesmen</a>
-            <a href="#">Peluang Karir</a>
+            <a href="{{ route('job-opportunity') }}">Peluang Karir</a>
             <a href="{{ route('learning-path') ?? '#' }}">Jalur Belajar</a>
         </nav>
 
