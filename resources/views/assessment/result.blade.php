@@ -7,7 +7,7 @@
 @section('content')
 <div class="result-container">
     
-    <!-- Header Result -->
+
     <div class="result-header">
         <h2>Hasil Assessment Kamu</h2>
         <p>Berdasarkan jawabanmu, ini adalah jalur karir yang paling cocok untukmu:</p>
@@ -20,9 +20,7 @@
         <p class="result-desc">{{ $result->careerTrack->description }}</p>
     </div>
 
-    <!-- Skor Detail -->
     <div class="result-details-grid">
-        <!-- Kiri: Breakdown Skor -->
         <div class="result-panel">
             <h3>Rincian Skor Per Bidang</h3>
             <ul class="score-list">
@@ -40,25 +38,26 @@
             </ul>
         </div>
 
-        <!-- Kanan: Rekomendasi Bootcamp -->
         <div class="result-panel">
             <h3>Rekomendasi Pembelajaran</h3>
             @if($result->careerTrack->bootcamps->count() > 0)
-                <ul class="bootcamp-list">
+                <div class="bootcamp-list">
                     @foreach($result->careerTrack->bootcamps as $bootcamp)
-                    <li class="bootcamp-item">
-                        <strong>{{ $bootcamp->name }}</strong><br>
+                    <div class="bootcamp-item">
+                        <span class="bootcamp-title">{{ $bootcamp->name }}</span>
+                        @if($bootcamp->description)
+                            <p class="bootcamp-desc">{{ $bootcamp->description }}</p>
+                        @endif
                         <a href="{{ $bootcamp->url }}" target="_blank" class="bootcamp-link">Lihat Program ↗</a>
-                    </li>
+                    </div>
                     @endforeach
-                </ul>
+                </div>
             @else
                 <p>Belum ada rekomendasi course untuk track ini.</p>
             @endif
         </div>
     </div>
 
-    <!-- Analisis Kesenjangan & Rekomendasi Kompetensi -->
     <div class="gap-analysis-panel">
         <h3>Rekomendasi Pengembangan Kompetensi</h3>
         <p>Berdasarkan hasil assessment Anda, berikut adalah area kompetensi yang disarankan untuk dikembangkan (Skill Gaps):</p>

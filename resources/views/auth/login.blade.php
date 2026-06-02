@@ -2,10 +2,11 @@
 
 @section('title', 'Masuk - Eduva')
 
+@push('styles')
+<link rel="stylesheet" href="{{ asset('css/auth.css') }}">
+@endpush
+
 @section('content')
-    @push('styles')
-    <link rel="stylesheet" href="{{ asset('css/auth.css') }}">
-    @endpush
 
     <div class="page-container login-page">
         <div class="login-grid">
