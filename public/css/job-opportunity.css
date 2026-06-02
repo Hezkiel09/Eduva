@@ -1,0 +1,363 @@
+/* Hero Section */
+.jo-hero {
+    position: relative;
+    padding: 100px 0 90px;
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.92) 0%, rgba(30, 58, 138, 0.85) 100%);
+    color: #ffffff;
+    text-align: center;
+    overflow: hidden;
+}
+
+.jo-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: url("../img/jobkarir/latarblkg_jobkarir.jpg") center/cover no-repeat;
+    opacity: 0.38;
+    mix-blend-mode: normal;
+    z-index: 1;
+}
+
+.jo-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.jo-hero h1 {
+    font-size: 3.2rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 16px;
+    letter-spacing: -1px;
+}
+
+.jo-hero p {
+    font-size: 1.15rem;
+    color: #cbd5e1;
+    max-width: 600px;
+    margin-bottom: 32px;
+    line-height: 1.6;
+}
+
+.jo-hero-search {
+    display: flex;
+    width: 100%;
+    max-width: 650px;
+    background: #ffffff;
+    padding: 6px;
+    border-radius: 99px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.jo-hero-search input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 12px 24px;
+    font-size: 1rem;
+    border-radius: 99px 0 0 99px;
+    color: #0f172a;
+}
+
+.jo-hero-search button {
+    background: #007A87;
+    color: #ffffff;
+    border: none;
+    outline: none;
+    padding: 12px 32px;
+    font-weight: 700;
+    border-radius: 99px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.2s ease;
+}
+
+.jo-hero-search button:hover {
+    background: #00636e;
+}
+
+/* Main Container & Filters */
+.jo-main-container {
+    margin-top: 40px;
+    margin-bottom: 80px;
+}
+
+.jo-filters-bar {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: #ffffff;
+    padding: 16px 24px;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+}
+
+.jo-search-wrapper {
+    position: relative;
+    flex: 1;
+    min-width: 250px;
+}
+
+.jo-search-icon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    color: #94a3b8;
+}
+
+.jo-search-wrapper input {
+    width: 100%;
+    padding: 10px 16px 10px 48px;
+    border-radius: 99px;
+    border: 1px solid #cbd5e1;
+    font-size: 0.95rem;
+    outline: none;
+    color: #0f172a;
+    transition: border-color 0.2s ease;
+}
+
+.jo-search-wrapper input:focus {
+    border-color: #3b82f6;
+}
+
+.jo-dropdowns {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.jo-select-wrapper {
+    position: relative;
+}
+
+.jo-select-wrapper select {
+    appearance: none;
+    padding: 10px 36px 10px 16px;
+    border-radius: 99px;
+    border: 1px solid #cbd5e1;
+    background: #ffffff;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #475569;
+    outline: none;
+    cursor: pointer;
+}
+
+.jo-select-wrapper::after {
+    content: '';
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 5px solid transparent;
+    border-top-color: #64748b;
+    pointer-events: none;
+}
+
+.jo-filter-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #0f172a;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 99px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.jo-filter-btn:hover {
+    background: #1e293b;
+}
+
+/* Grid Layout */
+.jo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 24px;
+    margin-bottom: 48px;
+}
+
+/* Card Styling */
+.jo-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 20px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.jo-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+}
+
+.jo-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.jo-company-logo {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+    color: #ffffff;
+}
+
+.logo-tokopedia { background: #34d399; }
+.logo-gojek { background: #f87171; }
+.logo-traveloka { background: #60a5fa; }
+.logo-grab { background: #059669; }
+.logo-shopee { background: #f97316; }
+.logo-tiket { background: #3b82f6; }
+.logo-aws { background: #ff9900; }
+.logo-bca { background: #2563eb; }
+.logo-bukalapak { background: #ec4899; }
+
+.jo-company-logo svg {
+    width: 24px;
+    height: 24px;
+}
+
+.jo-match-badge {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: #ecfdf5;
+    color: #059669;
+    padding: 4px 12px;
+    border-radius: 99px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    border: 1px solid #a7f3d0;
+}
+
+.jo-card-body h3 {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin: 0 0 6px 0;
+}
+
+.jo-company-info {
+    font-size: 0.9rem;
+    color: #64748b;
+    margin-bottom: 12px;
+    font-weight: 500;
+}
+
+.jo-salary {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #007A87;
+    margin-bottom: 18px;
+}
+
+.jo-period {
+    font-size: 0.85rem;
+    color: #64748b;
+    font-weight: 500;
+}
+
+.jo-tags {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+
+.jo-tag {
+    background: #f1f5f9;
+    color: #475569;
+    padding: 4px 12px;
+    border-radius: 99px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.jo-card-footer {
+    border-top: 1px solid #f1f5f9;
+    padding-top: 16px;
+}
+
+.jo-details-btn {
+    display: block;
+    text-align: center;
+    background: #6366f1;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: background 0.2s ease;
+}
+
+.jo-details-btn:hover {
+    background: #4f46e5;
+}
+
+/* Load More Section */
+.jo-load-more {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.jo-load-btn {
+    background: #6366f1;
+    color: #ffffff;
+    border: none;
+    padding: 12px 36px;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.2);
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.jo-load-btn:hover {
+    background: #4f46e5;
+    transform: translateY(-1px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .jo-hero h1 {
+        font-size: 2.2rem;
+    }
+    .jo-hero p {
+        font-size: 1rem;
+    }
+    .jo-filters-bar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .jo-dropdowns {
+        flex-direction: column;
+    }
+    .jo-select-wrapper select {
+        width: 100%;
+    }
+    .jo-filter-btn {
+        justify-content: center;
+    }
+}

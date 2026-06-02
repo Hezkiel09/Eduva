@@ -209,14 +209,24 @@ button, .btn {
 }
 
 .btn-primary {
-    background: #2563EB;
+    background: #378ADD;
     color: #ffffff;
     border: 1px solid transparent;
     padding: 0.95rem 1.85rem;
 }
 
+.btn-lg {
+    font-size: 1.15rem;
+    padding: 1.25rem 2.75rem;
+    font-weight: 700;
+    background: #1e5fa0;
+    border-radius: 99px;
+    display: inline-block;
+    margin-top: 15px;
+}
+
 .btn-primary:hover {
-    background: #1D4ED8;
+    background: #2b70b5;
     transform: translateY(-1px);
 }
 
@@ -242,7 +252,7 @@ button, .btn {
     content: '';
     position: absolute;
     inset: 0;
-    background: url("../img/landingpage/Mask Group.png") center/cover no-repeat;
+    background: url("../img/landingpage/image 14.png") center/cover no-repeat;
     opacity: 0.28;
     filter: saturate(0.6) brightness(0.8);
 }
@@ -274,6 +284,14 @@ button, .btn {
     align-items: center;
 }
 
+.hero-section > .page-container {
+    position: relative;
+    z-index: 2;
+    max-width: 1550px;
+    padding: 0 40px; /* Kurangi padding samping agar ruang tengah lebih luas */
+    gap: 120px; /* INI UNTUK MENGATUR JARAK ANTARA TEKS DAN GAMBAR */
+}
+
 .hero-inner {
     position: relative;
     z-index: 2;
@@ -284,29 +302,20 @@ button, .btn {
 .hero-copy {
     max-width: 560px;
     padding: 1rem 0;
+    text-align: left;
 }
 
 .hero-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: rgba(223, 232, 255, 0.25);
-    color: #DBEAFE;
-    font-size: 0.82rem;
-    font-weight: 700;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    padding: 0.7rem 1rem;
-    border-radius: 9999px;
-    margin-bottom: 26px;
+    display: none;
 }
 
 .hero-title {
     color: #FFFFFF;
-    font-size: clamp(3.2rem, 4vw, 4.8rem);
-    line-height: 0.94;
+    font-size: clamp(3.8rem, 4.8vw, 5.8rem); /* INI UNTUK MENGATUR UKURAN TEKS JUDUL */
+    line-height: 0.95;
     font-weight: 800;
-    margin-bottom: 28px;
+    margin-bottom: 30px;
+    letter-spacing: -1.5px;
 }
 
 .hero-text {
@@ -320,18 +329,44 @@ button, .btn {
 .hero-media {
     position: relative;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
+    padding-right: 0px;
+    margin-right: 0px;
+}
+
+.yellow-line-decoration {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%) rotate(15deg);
+    width: 4px;
+    height: 180px;
+    background-color: #FBBF24;
+    border-radius: 10px;
+    z-index: -1;
+}
+
+.yellow-line-decoration::before {
+    content: '';
+    position: absolute;
+    left: -20px;
+    top: 30px;
+    width: 4px;
+    height: 120px;
+    background-color: #FBBF24;
+    border-radius: 10px;
 }
 
 .hero-card {
     width: 100%;
-    max-width: 540px;
+    max-width: 640px; /* INI UNTUK MENGATUR UKURAN MAKSIMAL GAMBAR */
     border-radius: 38px;
     overflow: hidden;
     box-shadow: 0 28px 80px rgba(15, 23, 42, 0.22);
     border: 1px solid rgba(255, 255, 255, 0.15);
     background: #ffffff;
+    position: relative;
 }
 
 .hero-card img {
@@ -339,6 +374,8 @@ button, .btn {
     height: 100%;
     object-fit: cover;
     display: block;
+    transform: scale(1.3) translateY(4%); /* Zoom lebih besar & geser ke bawah agar ruang putih di bawah hilang */
+    transform-origin: center center;
 }
 
 .hero-badge {
@@ -346,28 +383,28 @@ button, .btn {
     display: inline-flex;
     align-items: center;
     gap: 0.85rem;
-    padding: 0.95rem 1rem;
-    border-radius: 20px;
+    padding: 0.8rem 1.2rem;
+    border-radius: 12px;
     background: #FFFFFF;
-    box-shadow: 0 18px 36px rgba(15, 23, 42, 0.14);
-    min-width: 170px;
+    box-shadow: 0 12px 40px rgba(15, 23, 42, 0.2);
+    min-width: 180px;
     font-size: 0.95rem;
     font-weight: 700;
 }
 
 .badge-students {
-    top: -8px;
-    left: -8px;
+    top: 35px;
+    left: -60px;
 }
 
 .badge-review {
-    top: 10px;
-    right: -12px;
+    top: 80px;
+    right: -70px;
 }
 
 .badge-courses {
-    bottom: 10px;
-    right: -12px;
+    bottom: 35px;
+    right: -45px;
     background: #10B981;
     color: #ffffff;
 }
@@ -489,11 +526,6 @@ button, .btn {
     width: 100%;
     max-width: 560px;
     min-height: 420px;
-    border-radius: 42px;
-    overflow: hidden;
-    background: #ffffff;
-    box-shadow: 0 30px 80px rgba(15, 23, 42, 0.16);
-    border: 1px solid rgba(148, 163, 184, 0.16);
 }
 
 .about-image-card img {
@@ -600,63 +632,104 @@ button, .btn {
 }
 
 .footer {
-    background: #1E293B;
+    background: #282568;
     color: #CBD5E0;
-    padding: 56px 0 32px;
+    padding: 48px 0;
 }
 
 .footer-grid {
     display: grid;
-    grid-template-columns: 1.8fr 1fr 1fr 1fr;
-    gap: 36px;
+    grid-template-columns: 1.8fr 1fr 0.8fr 1.4fr;
+    gap: 28px;
     width: min(100%, 1100px);
     margin: 0 auto;
+    padding: 0 24px;
+    align-items: start;
 }
 
 .footer-brand {
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    gap: 2px;
 }
 
-.footer-brand .brand-title {
+.footer-logo {
+    height: 130px;
+    width: auto;
+    object-fit: contain;
+    align-self: flex-start;
+    margin-left: -18px;
+    margin-bottom: -4px;
+}
+
+.footer-copyright {
+    color: #94A3B8;
+    font-size: 0.82rem;
+    line-height: 1.4;
+}
+
+.footer-social-col {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-top: 6px;
+}
+
+.footer-social-link {
     display: inline-flex;
     align-items: center;
-    gap: 12px;
-    font-size: 1.3rem;
-    font-weight: 800;
+    gap: 10px;
+    color: #CBD5E0;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: color 0.2s;
+    font-weight: 600;
+}
+
+.footer-social-link:hover {
     color: #ffffff;
+}
+
+.footer-social-link svg {
+    flex-shrink: 0;
 }
 
 .footer-links {
     list-style: none;
-    padding: 0;
+    padding: 6px 0 0;
     margin: 0;
     display: grid;
-    gap: 10px;
+    gap: 8px;
 }
 
 .footer-links a {
     color: #CBD5E0;
-    font-size: 0.95rem;
+    font-size: 0.88rem;
+    font-weight: 600;
 }
 
 .footer-links a:hover {
     color: #ffffff;
 }
 
-.footer-divider {
-    border: none;
-    border-top: 1px solid rgba(255, 255, 255, 0.12);
-    margin: 40px auto 0;
-    width: min(100%, 1100px);
+.footer-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    font-size: 0.88rem;
+    line-height: 1.5;
+    padding-top: 6px;
 }
 
-.footer-text {
-    text-align: center;
-    color: #94A3B8;
-    font-size: 0.95rem;
-    margin-top: 16px;
+.footer-phone {
+    font-weight: 800;
+    font-size: 1.08rem;
+    color: #ffffff;
+    margin-top: 6px;
+}
+
+.footer-contact p:last-child {
+    margin-top: 2px;
 }
 
 .signup-grid,

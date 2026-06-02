@@ -1,46 +1,38 @@
 <footer class="footer">
     <div class="footer-grid">
         <div class="footer-brand">
-            <div class="brand-title">
-                <svg width="28" height="28" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="19" cy="19" r="19" fill="#2563EB" />
-                    <path d="M10 26L19 12L28 26" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
-                    <path d="M13 22H25" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                    <circle cx="19" cy="10" r="2.5" fill="#60A5FA" />
-                </svg>
-                EDUVA
-            </div>
-            <p>Platform asesmen, karir match, dan modul pelatihan yang terintegrasi untuk siswa dan talenta vokasi.</p>
+            <img src="{{ asset('img/asset_login/logo eduva.png') }}" alt="EDUVA" class="footer-logo">
+            <p class="footer-copyright">&copy; 2026 eduva.com Hak cipta dilindungi.</p>
+        </div>
+
+        <div class="footer-social-col">
+            <a href="#" class="footer-social-link">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                <span>@eduva.id</span>
+            </a>
+            <a href="#" class="footer-social-link">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+                <span>eduvaYT</span>
+            </a>
+            <a href="#" class="footer-social-link">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+                <span>@eduva</span>
+            </a>
         </div>
 
         <div>
-            <h4>Platform</h4>
             <ul class="footer-links">
-                <li><a href="#">Assessment</a></li>
-                <li><a href="#">Career Match</a></li>
-                <li><a href="#">Learning Path</a></li>
-                <li><a href="#">Profile</a></li>
+                <li><a href="{{ route('assessment.index') }}">Asesmen</a></li>
+                <li><a href="{{ route('job-opportunity') }}">Peluang Karir</a></li>
+                <li><a href="{{ route('learning-path') }}">Jalur Belajar</a></li>
+                <li><a href="#">Profil</a></li>
             </ul>
         </div>
 
-        <div>
-            <h4>Perusahaan</h4>
-            <ul class="footer-links">
-                <li><a href="#">Tentang Kami</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">Karir</a></li>
-                <li><a href="#">Kontak</a></li>
-            </ul>
-        </div>
-
-        <div>
-            <h4>Kontak</h4>
-            <p>Jl Garuda no 15, Cilandak, Jakarta Selatan 175612</p>
-            <p class="info-number">+625 2959 500</p>
+        <div class="footer-contact">
+            <p>Jl Garuda no 15, Cilandak,<br>Jakarta Selatan 175612</p>
+            <p class="footer-phone">+625 2959 500</p>
             <p>eduvainfo@gmail.com</p>
         </div>
     </div>
-
-    <hr class="footer-divider" />
-    <p class="footer-text">© 2026 Eduva.com. All rights reserved.</p>
 </footer>

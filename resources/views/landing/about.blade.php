@@ -14,9 +14,9 @@
         </div>
 
         <div class="about-copy">
-            <span class="section-label">Kenali kami lebih dekat!</span>
+            <span class="section-label">Yuk, Kenali kami lebih dekat!</span>
             <h2>Kenapa Eduva?</h2>
-            <p>EDUVA menjembatani kesenjangan antara pendidikan dan industri dengan memberikan wawasan yang jelas kepada siswa mengenai karier masa depan mereka di bidang teknologi. Melalui asesmen interaktif dan analisis keterampilan, siswa dapat menemukan potensi mereka, memahami kebutuhan industri, serta mempersiapkan diri untuk dunia kerja digital dengan lebih percaya diri dan terarah.</p>
+            <p>EDUVA menjembatani kesenjangan antara pendidikan dan industri dengan memberikan wawasan yang jelas kepada siswa mengenai karier masa depan mereka di bidang teknologi. Melalui asesmen dan analisis keterampilan, siswa dapat menemukan potensi mereka, memahami kebutuhan industri, serta mempersiapkan diri untuk dunia kerja digital dengan lebih percaya diri dan terarah.</p>
             <p class="about-highlight">Kami membantu siswa memahami:</p>
 
             <ul class="about-list">
@@ -44,7 +44,7 @@
                 <a href="#" class="btn btn-primary">Mulai Ujicoba Gratis</a>
                 <div class="about-info">
                     <span class="info-number">+625 2959 500</span>
-                    <span class="info-label">Call to Questions</span>
+                    <span class="info-label">Ada Pertanyaan? Telpon Nomor berikut!</span>
                 </div>
             </div>
         </div>
