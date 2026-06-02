@@ -14,7 +14,15 @@
         
         <div class="result-track-highlight">
             <h1>{{ $result->careerTrack->title }}</h1>
-            <p>Tingkat Kesiapan: {{ ucfirst($result->readiness_level) }}</p>
+            <p>Tingkat Kesiapan: 
+                @if($result->readiness_level === 'advanced')
+                    Sangat Siap (Advanced)
+                @elseif($result->readiness_level === 'intermediate')
+                    Siap (Intermediate)
+                @else
+                    Pemula (Beginner)
+                @endif
+            </p>
         </div>
         
         <p class="result-desc">{{ $result->careerTrack->description }}</p>
@@ -68,7 +76,14 @@
                     <div class="gap-card {{ $gap->gap_level }}">
                         <h4>{{ $gap->skill_name }}</h4>
                         <span class="gap-badge {{ $gap->gap_level }}">
-                            Prioritas: {{ ucfirst($gap->gap_level) }}
+                            Prioritas: 
+                            @if($gap->gap_level === 'high')
+                                Tinggi
+                            @elseif($gap->gap_level === 'medium')
+                                Sedang
+                            @else
+                                Rendah
+                            @endif
                         </span>
                         <p class="gap-desc">
                             @if($gap->gap_level == 'high')

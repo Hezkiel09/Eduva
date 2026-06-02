@@ -11,11 +11,11 @@
 
     <div class="assessment-hero-container">
         <div class="assessment-hero-text">
-            <h1>Discover <span style="position: relative; display: inline-block;">Your<span style="position: absolute; left: 0; bottom: -4px; width: 100%; height: 5px; background: #FACC15; border-radius: 99px;"></span></span> Technology Potential</h1>
+            <h1>Temukan <span style="position: relative; display: inline-block;">Potensi<span style="position: absolute; left: 0; bottom: -4px; width: 100%; height: 5px; background: #FACC15; border-radius: 99px;"></span></span> Teknologi Anda</h1>
             <p>Kenali kecocokan karir, ukur keahlian teknis, dan rancang peta belajar mandiri kamu melalui asesmen standar industri digital dari Eduva.</p>
             <div class="assessment-hero-buttons">
-                <button type="button" class="btn-hero-solid" onclick="openConfirmModal()">Start Assessment</button>
-                <a href="{{ route('learning-path') }}" class="btn-hero-outline">Explore Path</a>
+                <button type="button" class="btn-hero-solid" onclick="openConfirmModal()">Mulai Asesmen</button>
+                <a href="{{ route('learning-path') }}" class="btn-hero-outline">Jelajahi Jalur Belajar</a>
             </div>
         </div>
 
@@ -27,7 +27,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
                 </div>
                 <div class="floating-badge-text">
-                    <p class="floating-badge-title">Skill Score</p>
+                    <p class="floating-badge-title">Skor Keahlian</p>
                     <p class="floating-badge-val">892 Poin</p>
                 </div>
             </div>
@@ -37,7 +37,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                 </div>
                 <div class="floating-badge-text">
-                    <p class="floating-badge-title">Career Match</p>
+                    <p class="floating-badge-title">Kecocokan Karir</p>
                     <p class="floating-badge-val">85% Match</p>
                 </div>
             </div>
@@ -45,7 +45,7 @@
     </div>
 
     <div class="level-up-card">
-        <h2>Ready to level up?</h2>
+        <h2>Siap meningkatkan kemampuanmu?</h2>
         <p>Asesmen terstruktur kami mengukur logika komputasional, penalaran analitik, serta pemahaman arsitektur sistem untuk memetakan spesialisasi karir digital terbaik Anda.</p>
         <button type="button" class="btn-begin-large" onclick="openConfirmModal()">Mulai Assessment Sekarang</button>
     </div>
@@ -53,35 +53,35 @@
     <div style="max-width: 720px; margin: 0 auto 30px auto; text-align: left;">
         <div class="main-content" style="border-top: 5px solid #06B6D4; border-radius: 20px;">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-                <span style="font-size: 13.5px; font-weight: 700; color: #2563EB;">Question 3 of 10</span>
-                <span class="quiz-difficulty-badge" style="margin: 0;">Medium Difficulty</span>
+                <span style="font-size: 13.5px; font-weight: 700; color: #2563EB;">Pertanyaan 3 dari 10</span>
+                <span class="quiz-difficulty-badge" style="margin: 0;">Tingkat Kesulitan Sedang</span>
             </div>
 
-            <h3 class="quiz-question-title" style="margin-top: 0; font-size: 18px;">Which of the following data structures operates on a Last-In, First-Out (LIFO) principle?</h3>
+            <h3 class="quiz-question-title" style="margin-top: 0; font-size: 18px;">Manakah dari struktur data berikut yang bekerja berdasarkan prinsip Last-In, First-Out (LIFO)?</h3>
 
             <div class="option-cards-container" style="pointer-events: none;">
                 <div class="option-card">
                     <div class="option-card-circle">A</div>
-                    <span style="font-size: 14.5px; font-weight: 600; color: #334155;">Queue</span>
+                    <span style="font-size: 14.5px; font-weight: 600; color: #334155;">Queue (Antrean)</span>
                 </div>
                 <div class="option-card" style="border-color: #2563EB; background-color: #EFF6FF;">
                     <div class="option-card-circle" style="background-color: #2563EB; border-color: #2563EB; color: #ffffff;">B</div>
-                    <span style="font-size: 14.5px; font-weight: 700; color: #0F172A;">Stack</span>
+                    <span style="font-size: 14.5px; font-weight: 700; color: #0F172A;">Stack (Tumpukan)</span>
                 </div>
                 <div class="option-card">
                     <div class="option-card-circle">C</div>
-                    <span style="font-size: 14.5px; font-weight: 600; color: #334155;">Linked List</span>
+                    <span style="font-size: 14.5px; font-weight: 600; color: #334155;">Linked List (Daftar Berantai)</span>
                 </div>
                 <div class="option-card">
                     <div class="option-card-circle">D</div>
-                    <span style="font-size: 14.5px; font-weight: 600; color: #334155;">Binary Search Tree</span>
+                    <span style="font-size: 14.5px; font-weight: 600; color: #334155;">Binary Search Tree (Pohon Pencarian Biner)</span>
                 </div>
             </div>
 
             <div class="nav-buttons" style="margin-top: 28px; padding-top: 20px;">
-                <span class="btn-nav" style="opacity: 0.6; cursor: not-allowed;">&larr; Previous</span>
+                <span class="btn-nav" style="opacity: 0.6; cursor: not-allowed;">&larr; Sebelumnya</span>
                 <button type="button" class="btn-hero-solid" style="padding: 10px 20px; font-size: 13.5px; display: inline-flex; align-items: center; gap: 6px;" onclick="openConfirmModal()">
-                    Start Assessment
+                    Mulai Asesmen
                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                 </button>
             </div>

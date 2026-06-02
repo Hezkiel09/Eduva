@@ -49,7 +49,7 @@
             <div class="profile-info-block">
                 <div class="profile-name-row">
                     <h1 class="profile-fullname">{{ $user->username }}</h1>
-                    <span class="badge badge-role">{{ ucfirst($user->role) }}</span>
+                    <span class="badge badge-role">{{ $user->role === 'admin' ? 'Admin' : 'Siswa' }}</span>
                 </div>
                 <p class="profile-headline">{{ $user->headline ?? 'Aspiring Tech Professional' }}</p>
                 <div class="profile-meta-row">
@@ -99,7 +99,7 @@
     <div class="profile-details-layout">
         <div class="details-card-panel">
             <div class="panel-header">
-                <h2>Key Competencies</h2>
+                <h2>Kompetensi Utama</h2>
                 <span class="panel-subtitle">Berdasarkan rata-rata seluruh pengukuran asesmen Anda</span>
             </div>
             <div class="competency-list">
@@ -154,7 +154,7 @@
         <div class="details-sidebar-panel">
             <div class="details-card-panel" style="margin-bottom: 24px;">
                 <div class="panel-header">
-                    <h2>Career Interests & Insights</h2>
+                    <h2>Minat & Wawasan Karir</h2>
                 </div>
                 <div class="interest-tags">
                     @forelse($interestTags as $tag)
@@ -181,7 +181,7 @@
 
             <div class="details-card-panel">
                 <div class="panel-header">
-                    <h2>Recommended Next Steps</h2>
+                    <h2>Langkah Selanjutnya</h2>
                 </div>
                 <div class="next-steps-list">
                     @foreach($recommendedSteps as $step)
@@ -285,7 +285,7 @@
 
     <div class="top-career-section">
         <div class="top-career-header">
-            <h2>Top Career Matches</h2>
+            <h2>Kecocokan Karir Teratas</h2>
             <p>Jalur karir yang paling selaras dengan kemampuan unik Anda</p>
         </div>
         <div class="career-matches-grid">
@@ -313,7 +313,7 @@
                         </div>
                     </div>
                     <div class="career-card-footer">
-                        <a href="{{ route('learning-path') }}" class="btn-view-roadmap">View Role Roadmap &rarr;</a>
+                        <a href="{{ route('learning-path') }}" class="btn-view-roadmap">Lihat Peta Jalan Peran &rarr;</a>
                     </div>
                 </div>
             @endforeach
