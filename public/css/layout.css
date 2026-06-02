@@ -524,63 +524,104 @@ button, .btn {
 }
 
 .footer {
-    background: #1E293B;
+    background: #282568;
     color: #CBD5E0;
-    padding: 56px 0 32px;
+    padding: 48px 0;
 }
 
 .footer-grid {
     display: grid;
-    grid-template-columns: 1.8fr 1fr 1fr 1fr;
-    gap: 36px;
+    grid-template-columns: 1.8fr 1fr 0.8fr 1.4fr;
+    gap: 28px;
     width: min(100%, 1100px);
     margin: 0 auto;
+    padding: 0 24px;
+    align-items: start;
 }
 
 .footer-brand {
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    gap: 2px;
 }
 
-.footer-brand .brand-title {
+.footer-logo {
+    height: 130px;
+    width: auto;
+    object-fit: contain;
+    align-self: flex-start;
+    margin-left: -18px;
+    margin-bottom: -4px;
+}
+
+.footer-copyright {
+    color: #94A3B8;
+    font-size: 0.82rem;
+    line-height: 1.4;
+}
+
+.footer-social-col {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-top: 6px;
+}
+
+.footer-social-link {
     display: inline-flex;
     align-items: center;
-    gap: 12px;
-    font-size: 1.3rem;
-    font-weight: 800;
+    gap: 10px;
+    color: #CBD5E0;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: color 0.2s;
+    font-weight: 600;
+}
+
+.footer-social-link:hover {
     color: #ffffff;
+}
+
+.footer-social-link svg {
+    flex-shrink: 0;
 }
 
 .footer-links {
     list-style: none;
-    padding: 0;
+    padding: 6px 0 0;
     margin: 0;
     display: grid;
-    gap: 10px;
+    gap: 8px;
 }
 
 .footer-links a {
     color: #CBD5E0;
-    font-size: 0.95rem;
+    font-size: 0.88rem;
+    font-weight: 600;
 }
 
 .footer-links a:hover {
     color: #ffffff;
 }
 
-.footer-divider {
-    border: none;
-    border-top: 1px solid rgba(255, 255, 255, 0.12);
-    margin: 40px auto 0;
-    width: min(100%, 1100px);
+.footer-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    font-size: 0.88rem;
+    line-height: 1.5;
+    padding-top: 6px;
 }
 
-.footer-text {
-    text-align: center;
-    color: #94A3B8;
-    font-size: 0.95rem;
-    margin-top: 16px;
+.footer-phone {
+    font-weight: 800;
+    font-size: 1.08rem;
+    color: #ffffff;
+    margin-top: 6px;
+}
+
+.footer-contact p:last-child {
+    margin-top: 2px;
 }
 
 .signup-grid,
