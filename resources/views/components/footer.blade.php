@@ -2,7 +2,7 @@
     <div class="footer-grid">
         <div class="footer-brand">
             <img src="{{ asset('img/asset_login/logo eduva.png') }}" alt="EDUVA" class="footer-logo">
-            <p class="footer-copyright">&copy; 2026 eduva.com All rights reserved.</p>
+            <p class="footer-copyright">&copy; 2026 eduva.com Hak cipta dilindungi.</p>
         </div>
 
         <div class="footer-social-col">
@@ -22,10 +22,10 @@
 
         <div>
             <ul class="footer-links">
-                <li><a href="#">Assessment</a></li>
-                <li><a href="#">Oppurtunity Hub</a></li>
-                <li><a href="#">Learning Path</a></li>
-                <li><a href="#">Profile</a></li>
+                <li><a href="#">Asesmen</a></li>
+                <li><a href="#">Peluang Karir</a></li>
+                <li><a href="#">Jalur Belajar</a></li>
+                <li><a href="#">Profil</a></li>
             </ul>
         </div>
 

@@ -5,10 +5,10 @@
         </a>
 
         <nav class="nav-links">
-            <a href="{{ route('home') }}">Home</a>
-            <a href="{{ route('assessment.index') }}">Assessment</a>
-            <a href="#">Opportunity Hub</a>
-            <a href="{{ route('learning-path') ?? '#' }}">Learning Path</a>
+            <a href="{{ route('home') }}">Beranda</a>
+            <a href="{{ route('assessment.index') }}">Asesmen</a>
+            <a href="#">Peluang Karir</a>
+            <a href="{{ route('learning-path') ?? '#' }}">Jalur Belajar</a>
         </nav>
 
         <div class="nav-actions">
