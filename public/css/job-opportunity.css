@@ -2,7 +2,7 @@
 .jo-hero {
     position: relative;
     padding: 100px 0 90px;
-    background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #3b82f6 100%);
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.92) 0%, rgba(30, 58, 138, 0.85) 100%);
     color: #ffffff;
     text-align: center;
     overflow: hidden;
@@ -12,8 +12,8 @@
     position: absolute;
     inset: 0;
     background: url("../img/jobkarir/latarblkg_jobkarir.jpg") center/cover no-repeat;
-    opacity: 0.15;
-    mix-blend-mode: overlay;
+    opacity: 0.38;
+    mix-blend-mode: normal;
     z-index: 1;
 }
 
