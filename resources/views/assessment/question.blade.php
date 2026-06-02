@@ -6,7 +6,6 @@
 @section('content')
 
 <div class="layout-split">
-    <!-- Sidebar / Progress -->
     <div class="sidebar">
         <h4>Progress Pengerjaan</h4>
         @php
@@ -29,7 +28,6 @@
         </ul>
     </div>
 
-    <!-- Main Content / Question -->
     <div class="main-content">
         <div style="font-size: 12px; font-weight: bold; background: #000; color: white; display: inline-block; padding: 4px 8px; border-radius: 4px; margin-bottom: 10px;">
             Pertanyaan {{ $order }} dari {{ $totalQuestions }}
@@ -42,14 +40,16 @@
             <input type="hidden" name="question_id" value="{{ $question->question_id }}">
             <input type="hidden" name="order" value="{{ $order }}">
 
-            @foreach($question->options as $option)
-                <label class="option-card">
-                    <input type="radio" name="option_id" value="{{ $option->option_id }}" required 
-                        {{ ($existingAnswer && $existingAnswer->option_id == $option->option_id) ? 'checked' : '' }}
-                    > 
-                    {{ $option->option_text }}
-                </label>
-            @endforeach
+            <div class="option-cards-container" style="margin-bottom: 28px;">
+                @foreach($question->options as $option)
+                    <label class="option-card">
+                        <input type="radio" name="option_id" value="{{ $option->option_id }}" required 
+                            {{ ($existingAnswer && $existingAnswer->option_id == $option->option_id) ? 'checked' : '' }}
+                        > 
+                        {{ $option->option_text }}
+                    </label>
+                @endforeach
+            </div>
 
             <div class="nav-buttons">
                 @if($order > 1)
@@ -57,7 +57,7 @@
                         ← Sebelumnya
                     </a>
                 @else
-                    <div></div> <!-- Empty div to push next button to right -->
+                    <div></div>
                 @endif
                 
                 <button type="submit" class="btn-nav btn-next">
@@ -67,5 +67,4 @@
         </form>
     </div>
 </div>
-
 @endsection

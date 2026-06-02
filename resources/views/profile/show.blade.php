@@ -3,12 +3,11 @@
 @section('title', 'Profil Saya - Eduva')
 
 @push('styles')
-<link rel="stylesheet" href="{{ asset('css/assessment.css') }}">
+<link rel="stylesheet" href="{{ asset('css/profile.css') }}?v={{ time() }}">
 @endpush
 
 @section('content')
 <div class="page-container" style="padding-top: 40px; padding-bottom: 60px;">
-    <!-- Alert Success -->
     @if(session('success'))
         <div class="alert alert-success">
             <div class="alert-icon">
@@ -23,7 +22,6 @@
         </div>
     @endif
 
-    <!-- Alert Error Validation -->
     @if($errors->any())
         <div class="alert alert-danger">
             <div class="alert-icon">
@@ -42,33 +40,26 @@
         </div>
     @endif
 
-    <!-- Profile Header Card -->
     <div class="profile-header-card">
         <div class="profile-cover"></div>
         <div class="profile-avatar-container">
             <div class="profile-avatar-wrapper">
                 <img src="{{ $user->avatar_url }}" alt="{{ $user->username }}" id="profile-avatar-preview">
-                <div class="profile-avatar-overlay" onclick="document.getElementById('avatar-file-input').click()">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="camera-icon">
-                        <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
-                        <circle cx="12" cy="13" r="4"></circle>
-                    </svg>
-                </div>
             </div>
             <div class="profile-info-block">
                 <div class="profile-name-row">
                     <h1 class="profile-fullname">{{ $user->username }}</h1>
-                    <span class="badge badge-role">{{ ucfirst($user->role) }}</span>
+                    <span class="badge badge-role">{{ $user->role === 'admin' ? 'Admin' : 'Siswa' }}</span>
                 </div>
                 <p class="profile-headline">{{ $user->headline ?? 'Aspiring Tech Professional' }}</p>
                 <div class="profile-meta-row">
                     <span class="profile-meta-item">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/></svg>
-                        {{ $user->institution ?? 'University of Technology' }}
+                        {{ $user->institution ?? 'Belum mengisi institusi' }}
                     </span>
                     <span class="profile-meta-item">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                        {{ $user->age ?? '22' }} Tahun
+                        {{ $user->age ?? '—' }} Tahun
                     </span>
                     <span class="profile-meta-item">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
@@ -77,15 +68,14 @@
                 </div>
                 <p class="profile-bio-text">{{ $user->bio ?? 'Belum menuliskan bio. Tuliskan sesuatu tentang diri Anda agar profil terlihat lebih menarik!' }}</p>
             </div>
-            <button class="btn-edit-profile" onclick="openEditModal()">
+            <a href="{{ route('profile.edit') }}" class="btn-edit-profile" style="text-decoration: none;">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 1 1 3 3L12 15l-4 1 1-4z"></path></svg>
                 Edit Profil
-            </button>
+            </a>
         </div>
     </div>
 
-    <!-- Stats Grid Row -->
-    <div class="profile-stats-grid">
+    <div class="profile-stats-grid profile-stats-grid-2col">
         <div class="stat-card">
             <div class="stat-icon-wrapper blue">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
@@ -104,33 +94,13 @@
                 <p>Skor Kompetensi</p>
             </div>
         </div>
-        <div class="stat-card">
-            <div class="stat-icon-wrapper green">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-            </div>
-            <div class="stat-info">
-                <h3>12</h3>
-                <p>Proyek Selesai</p>
-            </div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-icon-wrapper orange">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
-            </div>
-            <div class="stat-info">
-                <h3>4</h3>
-                <p>Sertifikasi</p>
-            </div>
-        </div>
     </div>
 
-    <!-- Two-Column Details Section -->
     <div class="profile-details-layout">
-        <!-- Left: Key Competencies -->
         <div class="details-card-panel">
             <div class="panel-header">
-                <h2>Key Competencies</h2>
-                <span class="panel-subtitle">Berdasarkan data asesmen riil Anda</span>
+                <h2>Kompetensi Utama</h2>
+                <span class="panel-subtitle">Berdasarkan rata-rata seluruh pengukuran asesmen Anda</span>
             </div>
             <div class="competency-list">
                 <div class="competency-item">
@@ -181,55 +151,141 @@
             </div>
         </div>
 
-        <!-- Right: Career Interests & Next Steps -->
         <div class="details-sidebar-panel">
             <div class="details-card-panel" style="margin-bottom: 24px;">
                 <div class="panel-header">
-                    <h2>Career Interests</h2>
+                    <h2>Minat & Wawasan Karir</h2>
                 </div>
                 <div class="interest-tags">
-                    <span class="tag tag-interest">Frontend Dev</span>
-                    <span class="tag tag-interest">Fullstack Engineering</span>
-                    <span class="tag tag-interest">UI/UX Research</span>
-                    <span class="tag tag-interest">Product Design</span>
-                    <span class="tag tag-interest">Data Analytics</span>
+                    @forelse($interestTags as $tag)
+                        <span class="tag tag-interest">{{ $tag }}</span>
+                    @empty
+                        <span class="tag tag-interest">Frontend Dev</span>
+                        <span class="tag tag-interest">Fullstack Engineering</span>
+                        <span class="tag tag-interest">UI/UX Research</span>
+                        <span class="tag tag-interest">Product Design</span>
+                    @endforelse
                 </div>
+                
+                @if(isset($insightTrend))
+                    <div class="insight-block" style="margin-top: 20px; padding-top: 15px; border-top: 1px solid #F1F5F9;">
+                        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+                            <span style="font-size: 11.5px; font-weight: 700; text-transform: uppercase; color: #2563EB; letter-spacing: 0.5px;">Wawasan Karir</span>
+                            <span class="badge" style="background: #FEF3C7; color: #92400E; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 99px; text-transform: uppercase;">{{ $insightTrend->demand_level }} Demand</span>
+                        </div>
+                        <h4 style="font-size: 13.5px; font-weight: 800; color: #0F172A; margin: 0 0 4px 0;">Skill Populer: {{ $insightTrend->skill_name }}</h4>
+                        <p style="font-size: 12.5px; color: #475569; line-height: 1.5; margin: 0;">{{ $insightTrend->description }}</p>
+                    </div>
+                @endif
             </div>
 
             <div class="details-card-panel">
                 <div class="panel-header">
-                    <h2>Recommended Next Steps</h2>
+                    <h2>Langkah Selanjutnya</h2>
                 </div>
                 <div class="next-steps-list">
-                    <label class="step-checkbox-item">
-                        <input type="checkbox" checked disabled>
-                        <span class="checkmark-box"></span>
-                        <span class="step-text done">Ikuti asesmen perdana untuk petakan skill</span>
-                    </label>
-                    <label class="step-checkbox-item">
-                        <input type="checkbox" id="step-lp" onchange="updateStepState(this)">
-                        <span class="checkmark-box"></span>
-                        <span class="step-text">Buka modul rekomendasi Learning Path</span>
-                    </label>
-                    <label class="step-checkbox-item">
-                        <input type="checkbox" id="step-avatar" onchange="updateStepState(this)">
-                        <span class="checkmark-box"></span>
-                        <span class="step-text">Unggah foto profil personal Anda</span>
-                    </label>
-                    <label class="step-checkbox-item">
-                        <input type="checkbox" id="step-bootcamp" onchange="updateStepState(this)">
-                        <span class="checkmark-box"></span>
-                        <span class="step-text">Daftar di salah satu Bootcamp mitra</span>
-                    </label>
+                    @foreach($recommendedSteps as $step)
+                        <label class="step-checkbox-item">
+                            @if($step['auto'])
+                                <input type="checkbox" {{ $step['done'] ? 'checked' : '' }} disabled>
+                                <span class="checkmark-box"></span>
+                                <span class="step-text {{ $step['done'] ? 'done' : '' }}">
+                                    @if(!$step['done'])
+                                        <a href="{{ $step['action_url'] }}" style="color: #2563EB; font-weight: 600; text-decoration: none; border-bottom: 1px dashed #2563EB;">{{ $step['text'] }}</a>
+                                    @else
+                                        {{ $step['text'] }}
+                                    @endif
+                                </span>
+                            @else
+                                <input type="checkbox" id="{{ $step['id'] }}" onchange="updateStepState(this)">
+                                <span class="checkmark-box"></span>
+                                <span class="step-text">
+                                    <a href="{{ $step['action_url'] }}" style="color: inherit; text-decoration: none; font-weight: 500;">{{ $step['text'] }}</a>
+                                </span>
+                            @endif
+                        </label>
+                    @endforeach
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Top Career Matches -->
+    <div class="details-card-panel" style="margin-top: 30px; margin-bottom: 40px;">
+        <div class="panel-header" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+            <div>
+                <h2>Riwayat Asesmen</h2>
+                <span class="panel-subtitle">Daftar ujian dan pengukuran kompetensi yang telah Anda lalui</span>
+            </div>
+            <a href="{{ route('assessment.index') }}" class="btn-view-roadmap" style="background: #2563EB; color: white !important; padding: 10px 18px; border-radius: 12px; font-size: 13.5px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: all 0.2s;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                Asesmen Baru
+            </a>
+        </div>
+        
+        @if($assessmentHistory->isEmpty())
+            <div class="empty-history" style="text-align: center; padding: 48px 20px; background: #F8FAFC; border-radius: 20px; border: 2px dashed #E2E8F0; margin-top: 15px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 12px;"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                <p style="color: #64748B; font-size: 15px; margin: 0 0 16px 0; font-weight: 500;">Anda belum pernah mengikuti asesmen kompetensi.</p>
+                <a href="{{ route('assessment.index') }}" class="btn-view-roadmap" style="background: #000; color: white !important; padding: 10px 20px; border-radius: 10px; text-decoration: none; font-size: 13.5px;">Mulai Asesmen Perdana &rarr;</a>
+            </div>
+        @else
+            <div class="history-table-container" style="overflow-x: auto; margin-top: 15px; border-radius: 12px; border: 1px solid #E2E8F0;">
+                <table class="history-table" style="width: 100%; border-collapse: collapse; text-align: left; min-width: 600px;">
+                    <thead>
+                        <tr style="background: #F8FAFC; border-bottom: 2px solid #E2E8F0; color: #475569; font-size: 12.5px; font-weight: 700;">
+                            <th style="padding: 14px 20px; text-transform: uppercase; letter-spacing: 0.5px;">Tanggal Pengujian</th>
+                            <th style="padding: 14px 20px; text-transform: uppercase; letter-spacing: 0.5px;">Minat Karir Utama</th>
+                            <th style="padding: 14px 20px; text-transform: uppercase; letter-spacing: 0.5px;">Tingkat Kesiapan</th>
+                            <th style="padding: 14px 20px; text-transform: uppercase; letter-spacing: 0.5px;">Skor Tertinggi</th>
+                            <th style="padding: 14px 20px; text-transform: uppercase; letter-spacing: 0.5px; text-align: right;">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($assessmentHistory as $history)
+                            <tr class="history-row" style="border-bottom: 1px solid #E2E8F0; font-size: 14px; color: #334155; transition: background 0.2s;">
+                                <td style="padding: 16px 20px; font-weight: 500;">
+                                    {{ $history->submitted_at ? $history->submitted_at->timezone('Asia/Jakarta')->format('d M Y, H:i') : 'N/A' }} WIB
+                                </td>
+                                <td style="padding: 16px 20px;">
+                                    <span class="badge" style="background: #EFF6FF; color: #2563EB; font-weight: 700; padding: 4px 10px; border-radius: 8px; font-size: 12.5px;">
+                                        {{ $history->careerTrack->title ?? 'N/A' }}
+                                    </span>
+                                </td>
+                                <td style="padding: 16px 20px;">
+                                    @if($history->readiness_level === 'advanced')
+                                        <span class="badge" style="background: #ECFDF5; color: #059669; font-weight: 700; padding: 4px 10px; border-radius: 8px; font-size: 12.5px; text-transform: uppercase;">
+                                            Advanced
+                                        </span>
+                                    @elseif($history->readiness_level === 'intermediate')
+                                        <span class="badge" style="background: #FFFBEB; color: #D97706; font-weight: 700; padding: 4px 10px; border-radius: 8px; font-size: 12.5px; text-transform: uppercase;">
+                                            Intermediate
+                                        </span>
+                                    @else
+                                        <span class="badge" style="background: #FEF2F2; color: #DC2626; font-weight: 700; padding: 4px 10px; border-radius: 8px; font-size: 12.5px; text-transform: uppercase;">
+                                            Beginner
+                                        </span>
+                                    @endif
+                                </td>
+                                <td style="padding: 16px 20px; font-weight: 800; color: #0F172A;">
+                                    {{ max($history->track_scores) }} poin
+                                </td>
+                                <td style="padding: 16px 20px; text-align: right;">
+                                    <a href="{{ route('result.show', ['result' => $history->result_id]) }}" class="btn-view-roadmap" style="font-weight: 700; text-decoration: none; font-size: 13.5px; display: inline-flex; align-items: center; gap: 4px;">
+                                        Detail Hasil
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                                    </a>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        @endif
+    </div>
+
     <div class="top-career-section">
         <div class="top-career-header">
-            <h2>Top Career Matches</h2>
+            <h2>Kecocokan Karir Teratas</h2>
             <p>Jalur karir yang paling selaras dengan kemampuan unik Anda</p>
         </div>
         <div class="career-matches-grid">
@@ -239,7 +295,6 @@
                         <div class="career-avatar">
                             <img src="{{ asset($match['image']) }}" alt="{{ $match['title'] }}" onerror="this.src='https://ui-avatars.com/api/?name='+encodeURIComponent('{{ $match['title'] }}')+'&background=EFF6FF&color=2563EB&size=64'">
                         </div>
-                        <!-- Circular progress -->
                         <div class="circular-progress-wrapper">
                             <svg class="circular-progress" viewBox="0 0 36 36">
                                 <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
@@ -258,7 +313,7 @@
                         </div>
                     </div>
                     <div class="career-card-footer">
-                        <a href="{{ route('learning-path') }}" class="btn-view-roadmap">View Role Roadmap &rarr;</a>
+                        <a href="{{ route('learning-path') }}" class="btn-view-roadmap">Lihat Peta Jalan Peran &rarr;</a>
                     </div>
                 </div>
             @endforeach
@@ -266,102 +321,9 @@
     </div>
 </div>
 
-<!-- Edit Profile Modal -->
-<div class="modal-overlay" id="edit-profile-modal">
-    <div class="modal-card">
-        <div class="modal-header">
-            <h2>Edit Profil</h2>
-            <button class="modal-close-btn" onclick="closeEditModal()">&times;</button>
-        </div>
-        <form method="POST" action="{{ route('profile.update') }}" enctype="multipart/form-data">
-            @csrf
-            @method('PUT')
-
-            <!-- Hidden input for file upload to trigger from avatar wrapper -->
-            <input type="file" name="avatar" id="avatar-file-input" style="display: none;" accept="image/png, image/jpeg, image/jpg" onchange="previewAvatar(this)">
-
-            <div class="modal-body">
-                <div class="form-group-avatar">
-                    <div class="modal-avatar-preview-wrapper" onclick="document.getElementById('avatar-file-input').click()">
-                        <img src="{{ $user->avatar_url }}" alt="{{ $user->username }}" id="modal-avatar-preview-img">
-                        <div class="edit-overlay-modal">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
-                            <span>Ganti Foto</span>
-                        </div>
-                    </div>
-                    <p class="form-help-text">Format file JPG atau PNG, Max 2MB.</p>
-                </div>
-
-                <div class="form-grid">
-                    <div class="form-group">
-                        <label for="username">Username</label>
-                        <input type="text" name="username" id="username" value="{{ old('username', $user->username) }}" required placeholder="Contoh: joko_s">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Alamat Email</label>
-                        <input type="email" name="email" id="email" value="{{ old('email', $user->email) }}" placeholder="Contoh: joko@company.com">
-                    </div>
-                </div>
-
-                <div class="form-grid">
-                    <div class="form-group">
-                        <label for="headline">Headline Profesional</label>
-                        <input type="text" name="headline" id="headline" value="{{ old('headline', $user->headline) }}" placeholder="Contoh: Aspiring Frontend Engineer">
-                    </div>
-                    <div class="form-group">
-                        <label for="institution">Institusi / Sekolah</label>
-                        <input type="text" name="institution" id="institution" value="{{ old('institution', $user->institution) }}" placeholder="Contoh: Telkom University">
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="age">Umur</label>
-                    <input type="number" name="age" id="age" value="{{ old('age', $user->age) }}" min="1" max="120" placeholder="Contoh: 22">
-                </div>
-
-                <div class="form-group">
-                    <label for="bio">Biografi Singkat</label>
-                    <textarea name="bio" id="bio" rows="4" placeholder="Tuliskan latar belakang, minat, atau target karir Anda...">{{ old('bio', $user->bio) }}</textarea>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn-cancel" onclick="closeEditModal()">Batal</button>
-                <button type="submit" class="btn-save">Simpan Perubahan</button>
-            </div>
-        </form>
-    </div>
-</div>
-
 <script>
-    // Open Modal
-    function openEditModal() {
-        const modal = document.getElementById('edit-profile-modal');
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    }
-
-    // Close Modal
-    function closeEditModal() {
-        const modal = document.getElementById('edit-profile-modal');
-        modal.classList.remove('active');
-        document.body.style.overflow = '';
-    }
-
-    // Image Preview function
-    function previewAvatar(input) {
-        if (input.files && input.files[0]) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                document.getElementById('modal-avatar-preview-img').src = e.target.result;
-                document.getElementById('profile-avatar-preview').src = e.target.result;
-            }
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
-
-    // Keep state of Recommended Next Steps checkboxes in LocalStorage
     document.addEventListener('DOMContentLoaded', () => {
-        const steps = ['step-lp', 'step-avatar', 'step-bootcamp'];
+        const steps = ['step-lp'];
         steps.forEach(stepId => {
             const isChecked = localStorage.getItem(stepId) === 'true';
             const checkbox = document.getElementById(stepId);
@@ -383,14 +345,6 @@
         } else {
             textElement.classList.remove('done');
             localStorage.setItem(stepId, 'false');
-        }
-    }
-
-    // Close modal if user clicks outside of modal card
-    window.onclick = function(event) {
-        const modal = document.getElementById('edit-profile-modal');
-        if (event.target == modal) {
-            closeEditModal();
         }
     }
 </script>

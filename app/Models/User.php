@@ -9,7 +9,6 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    /** @use HasFactory<UserFactory> */
     use HasFactory, Notifiable;
 
     protected $fillable = [
@@ -63,7 +62,7 @@ class User extends Authenticatable
     public function getAvatarUrlAttribute(): string
     {
         if ($this->avatar) {
-            return asset('storage/avatars/' . $this->avatar);
+            return '/storage/avatars/' . $this->avatar;
         }
         return 'https://ui-avatars.com/api/?name=' . urlencode($this->username) . '&background=2563EB&color=ffffff&size=150';
     }
