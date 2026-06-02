@@ -1,7 +1,6 @@
 <section class="section-features">
     <div class="page-container">
-        <div class="section-heading">
-            <span class="section-label">Fitur Utama</span>
+        <div class="section-heading" style="gap: 4px; margin-bottom: 36px;">
             <h2 class="section-title">Keunggulan Kami</h2>
             <p class="section-sub">Ekosistem terintegrasi untuk membantu perjalanan karir dan pendidikan vokasi Anda.</p>
         </div>
