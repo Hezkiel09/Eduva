@@ -104,7 +104,7 @@
     
     <div class="result-action">
         <a href="{{ route('learning-path') }}" class="btn-black">
-            Lihat Learning Path
+            Lihat Jalur Belajar
         </a>
     </div>
 
