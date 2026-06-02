@@ -1,13 +1,13 @@
 <section class="hero-section">
     <div class="page-container grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         <div class="hero-copy">
-            <div class="hero-eyebrow">Transformasi Karier Teknologi</div>
-            <h1 class="hero-title">Ciptakan<br>Impianmu<br>#Temukan Potensimu</h1>
+            <h1 class="hero-title">Ciptakan<br>Impianmu<br>#Temukan<br>Potensimu</h1>
             <p class="hero-text">EDUVA membantu siswa dan pencari karir menemukan jalur belajar yang tepat melalui asesmen, kecocokan karir, dan modul pelatihan terintegrasi.</p>
-            <a href="{{ route('assessment.index') }}" class="btn btn-primary">Mulai Sekarang</a>
+            <a href="{{ route('assessment.index') }}" class="btn btn-primary btn-lg">Mulai Sekarang</a>
         </div>
 
         <div class="hero-media">
+            <div class="yellow-line-decoration"></div>
             <div class="hero-card">
                 <img src="{{ asset('img/landingpage/img.png') }}" alt="Ilustrasi edukasi" />
             </div>
