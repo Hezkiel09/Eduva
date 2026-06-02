@@ -6,25 +6,25 @@
 
 @section('content')
 <div class="assessment-banner">
-    <h1>Discover Your Tech Potential</h1>
-    <p>Unlock your vocational future with data-driven skill assessments designed to align your technical prowess with industry demands.</p>
+    <h1>Temukan Potensi Teknologi Kamu</h1>
+    <p>Kenali kemampuan teknis kamu melalui tes yang dirancang khusus untuk mencocokkan minatmu dengan kebutuhan industri saat ini.</p>
 </div>
 
 <div class="assessment-cards-wrapper">
     <div class="assessment-card-info">
-        <h3>Logic Test</h3>
-        <p>Evaluate your algorithmic thinking.</p>
+        <h3>Tes Logika</h3>
+        <p>Ukur kemampuan berpikir sistematis dan analitis kamu.</p>
     </div>
     <div class="assessment-card-info">
-        <h3>Tech Stack Assessment</h3>
-        <p>Deep dive into specific languages.</p>
+        <h3>Tes Kemampuan Teknologi</h3>
+        <p>Uji pemahamanmu di berbagai bahasa dan teknologi pemrograman.</p>
     </div>
 </div>
 
 <div class="assessment-card-info assessment-card-flex">
     <div>
-        <h3>Interests & Career (Tugas Utama)</h3>
-        <p>Map your personality to find your perfect vocational trajectory.</p>
+        <h3>Minat & Karir</h3>
+        <p>Temukan jalur karir yang paling sesuai dengan kepribadian dan minatmu.</p>
     </div>
     
     @if($activeSession)
@@ -32,14 +32,14 @@
     @else
         <form action="{{ route('assessment.start') }}" method="POST">
             @csrf
-            <button type="submit" class="assessment-btn-start">Begin Mapping</button>
+            <button type="submit" class="assessment-btn-start">Mulai Sekarang</button>
         </form>
     @endif
 </div>
 
 <div class="assessment-sample-container">
-    <h3>Sample Question</h3>
-    <p><strong>Which CSS property is used to create a flexbox container?</strong></p>
+    <h3>Contoh Soal</h3>
+    <p><strong>Properti CSS apa yang digunakan untuk membuat flexbox container?</strong></p>
     <ul class="assessment-sample-list">
         <li>A. display: flex;</li>
         <li>B. flex-direction: row;</li>

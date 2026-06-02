@@ -24,39 +24,46 @@ class AuthController extends Controller
         $validated = $request->validate([
             'username' => 'required|string|max:50|unique:users',
             'email'    => 'required|email|unique:users',
-            // SRS SC-02: min 8 char, 1 uppercase, 1 digit
             'password' => ['required', 'min:8', 'regex:/[A-Z]/', 'regex:/[0-9]/', 'confirmed'],
             'terms'    => 'accepted',
+        ], [
+            'username.required'  => 'Username wajib diisi.',
+            'username.unique'    => 'Username ini sudah dipakai, coba gunakan nama lain.',
+            'username.max'       => 'Username tidak boleh lebih dari 50 karakter.',
+            'email.required'     => 'Email wajib diisi.',
+            'email.email'        => 'Format email tidak valid. Contoh: nama@email.com',
+            'email.unique'       => 'Email ini sudah terdaftar. Coba masuk atau gunakan email lain.',
+            'password.required'  => 'Password wajib diisi.',
+            'password.min'       => 'Password minimal 8 karakter.',
+            'password.regex'     => 'Password harus mengandung minimal 1 huruf kapital dan 1 angka. Contoh: Belajar123',
+            'password.confirmed' => 'Konfirmasi password tidak cocok. Periksa kembali.',
+            'terms.accepted'     => 'Kamu harus menyetujui Syarat dan Ketentuan untuk mendaftar.',
         ]);
 
-        $code = \App\Http\Controllers\VerificationController::generateCode();
-
-        $user = User::create([
-            'username'                     => strtolower($validated['username']),
-            'email'                        => $validated['email'],
-            'password'                     => Hash::make($validated['password']),
-            'verification_code'            => $code,
-            'verification_code_expires_at' => now()->addMinutes(10),
+        User::create([
+            'username' => strtolower($validated['username']),
+            'email'    => $validated['email'],
+            'password' => Hash::make($validated['password']),
         ]);
 
-        // Kirim email verifikasi
-        \Illuminate\Support\Facades\Mail::to($user->email)
-            ->send(new \App\Mail\VerificationCodeMail($code, $user->username));
-
-        // Simpan user id di session untuk proses verify
-        $request->session()->put('pending_user_id', $user->id);
-
-        return redirect()->route('verify.show');
+        return redirect()->route('login')
+            ->with('success', 'Akun berhasil dibuat! Silakan masuk dengan username dan password kamu.');
     }
 
     public function login(Request $request)
     {
-        $credentials = $request->validate([
+        $request->validate([
             'username' => 'required|string',
             'password' => 'required|string',
         ]);
 
-        $credentials['username'] = strtolower($credentials['username']);
+        $loginValue = strtolower($request->input('username'));
+        $loginType = filter_var($loginValue, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
+
+        $credentials = [
+            $loginType => $loginValue,
+            'password' => $request->input('password')
+        ];
 
         if (Auth::attempt($credentials, $request->boolean('remember'))) {
             $request->session()->regenerate();
@@ -65,7 +72,7 @@ class AuthController extends Controller
         }
 
         return back()->withErrors([
-            'username' => 'Email atau password yang Anda masukkan salah. Periksa kembali dan coba lagi.',
+            'username' => 'Email/Username atau password yang Anda masukkan salah. Periksa kembali dan coba lagi.',
         ])->onlyInput('username');
     }
 

@@ -50,7 +50,10 @@
 
                     <div class="login-field">
                         <label>Password</label>
-                        <input type="password" name="password" placeholder="Minimal 8 karakter" required />
+                        <input type="password" name="password" placeholder="Min. 8 karakter" required />
+                        <small style="color: #6B7280; font-size: 0.8rem; margin-top: 4px; display: block;">
+                            🔒 Harus mengandung minimal 8 karakter, 1 huruf kapital, dan 1 angka
+                        </small>
                     </div>
 
                     <div class="login-field">

@@ -14,7 +14,7 @@
         
         <div class="result-track-highlight">
             <h1>{{ $result->careerTrack->title }}</h1>
-            <p>Level: {{ ucfirst($result->readiness_level) }}</p>
+            <p>Tingkat Kesiapan: {{ ucfirst($result->readiness_level) }}</p>
         </div>
         
         <p class="result-desc">{{ $result->careerTrack->description }}</p>
@@ -48,7 +48,7 @@
                     @foreach($result->careerTrack->bootcamps as $bootcamp)
                     <li class="bootcamp-item">
                         <strong>{{ $bootcamp->name }}</strong><br>
-                        <a href="{{ $bootcamp->url }}" target="_blank" class="bootcamp-link">Buka Bootcamp ↗</a>
+                        <a href="{{ $bootcamp->url }}" target="_blank" class="bootcamp-link">Lihat Program ↗</a>
                     </li>
                     @endforeach
                 </ul>

@@ -22,10 +22,10 @@
         
         <hr style="margin: 20px 0; border: 0; border-top: 1px solid #eee;">
         <ul style="list-style: none; padding: 0; line-height: 2;">
-            <li>🏠 Home</li>
-            <li style="color: #2563EB; font-weight:bold;">📝 Assessment</li>
-            <li>🎯 Career Match</li>
-            <li>📚 Learning Path</li>
+            <li>🏠 Beranda</li>
+            <li style="color: #2563EB; font-weight:bold;">📝 Asesmen</li>
+            <li>🎯 Karir yang Cocok</li>
+            <li>📚 Jalur Belajar</li>
         </ul>
     </div>
 

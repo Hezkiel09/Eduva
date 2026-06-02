@@ -179,11 +179,11 @@
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
                     </svg>
-                    Back to login
+                    Kembali ke halaman masuk
                 </a>
 
-                <h1>Verify code</h1>
-                <p class="subtitle">An authentication code has been sent to your email.</p>
+                <h1>Verifikasi Kode</h1>
+                <p class="subtitle">Kode verifikasi telah dikirim ke email kamu. Periksa kotak masuk atau folder spam-mu.</p>
 
                 @if ($errors->any())
                     <div class="verify-alert error" style="margin-bottom: 20px;">
@@ -201,7 +201,7 @@
                     @csrf
 
                     <div class="verify-field">
-                        <label>Enter Code</label>
+                        <label>Masukkan Kode</label>
                         <input
                             type="text"
                             id="verifyCode"
@@ -222,12 +222,12 @@
                     </div>
 
                     <p class="resend-row">
-                        Didn't receive a code?
-                        <a href="{{ route('verify.resend') }}">Resend</a>
+                        Tidak menerima kode?
+                        <a href="{{ route('verify.resend') }}">Kirim ulang</a>
                     </p>
 
                     <div class="verify-actions">
-                        <button type="submit" class="btn btn-primary">Verify</button>
+                        <button type="submit" class="btn btn-primary">Verifikasi Sekarang</button>
                     </div>
                 </form>
             </div>

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Login - Eduva')
+@section('title', 'Masuk - Eduva')
 
 @section('content')
     @push('styles')
@@ -16,8 +16,8 @@
             </div>
 
             <div class="login-panel">
-                <h1 class="welcome-title">Welcome to <span>EDU</span>VA!</h1>
-                <h2>Login Here!</h2>
+                <h1 class="welcome-title">Selamat datang di <span>EDU</span>VA!</h1>
+                <h2>Masuk ke Akun Kamu</h2>
 
                 @if ($errors->any())
                     <div class="login-error">
@@ -27,18 +27,24 @@
                     </div>
                 @endif
 
+                @if (session('success'))
+                    <div style="background: #D1FAE5; color: #065F46; border: 1px solid #6EE7B7; padding: 12px 16px; border-radius: 8px; font-size: 0.93rem; margin-bottom: 16px;">
+                        ✅ {{ session('success') }}
+                    </div>
+                @endif
+
                 <form method="POST" action="{{ route('login') }}" class="login-form">
                     @csrf
 
                     <div class="login-field">
-                        <label>Email</label>
+                        <label>Email / Username</label>
                         <input
                             type="text"
                             name="username"
                             value="{{ old('username') }}"
-                            placeholder="john.doe@gmail.com"
+                            placeholder="john.doe atau john@gmail.com"
                             required
-                            autocomplete="email"
+                            autocomplete="username"
                         />
                     </div>
 
@@ -62,19 +68,19 @@
                     <div class="login-meta">
                         <label class="remember-label">
                             <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }} />
-                            Remember me
+                            Ingat saya
                         </label>
-                        <a href="#" class="forgot-link">Forgot Password</a>
+                        <a href="#" class="forgot-link">Lupa Password?</a>
                     </div>
 
                     <div class="login-actions">
-                        <button type="submit" class="btn btn-primary">Login</button>
-                        <p class="login-note">Don't have an account? <a href="{{ route('register') }}">Sign up</a></p>
+                        <button type="submit" class="btn btn-primary">Masuk</button>
+                        <p class="login-note">Belum punya akun? <a href="{{ route('register') }}">Daftar sekarang</a></p>
                     </div>
                 </form>
 
                 <div class="login-social">
-                    <span>Or login with</span>
+                    <span>Atau masuk dengan</span>
                     <div class="social-grid">
                         <a href="#">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
