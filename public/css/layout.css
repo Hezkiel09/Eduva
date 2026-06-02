@@ -134,7 +134,7 @@ button, .btn {
     content: '';
     position: absolute;
     inset: 0;
-    background: url("../img/landingpage/Mask Group.png") center/cover no-repeat;
+    background: url("../img/landingpage/image 14.png") center/cover no-repeat;
     opacity: 0.28;
     filter: saturate(0.6) brightness(0.8);
 }
