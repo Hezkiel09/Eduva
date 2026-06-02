@@ -13,66 +13,60 @@
         <h1>Temukan Peluang Karir Terbaikmu</h1>
         <p>Terhubung dengan para pemimpin industri dan temukan pekerjaan impian yang disesuaikan dengan hasil asesmen minat bakatmu.</p>
         <div class="jo-hero-search">
-            <input type="text" placeholder="Cari lowongan, magang, atau perusahaan...">
-            <button>Cari</button>
+            <input type="text" id="hero-search" placeholder="Cari lowongan, magang, atau perusahaan...">
+            <button id="hero-search-btn">Cari</button>
         </div>
     </div>
 </div>
 
 <div class="page-container jo-main-container">
-    <!-- Filters Bar -->
     <div class="jo-filters-bar">
         <div class="jo-search-wrapper">
             <svg class="jo-search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
             </svg>
-            <input type="text" placeholder="Cari lowongan, magang, atau perusahaan...">
+            <input type="text" id="filter-search" placeholder="Cari lowongan, magang, atau perusahaan...">
         </div>
         
         <div class="jo-dropdowns">
             <div class="jo-select-wrapper">
-                <select>
-                    <option value="" disabled selected>Tipe Pekerjaan</option>
-                    <option>Penuh Waktu (Full-time)</option>
-                    <option>Paruh Waktu (Part-time)</option>
-                    <option>Magang (Internship)</option>
-                    <option>Kontrak</option>
+                <select id="filter-type">
+                    <option value="" selected>Semua Tipe Pekerjaan</option>
+                    <option value="full-time">Penuh Waktu (Full-time)</option>
+                    <option value="magang">Magang (Internship)</option>
                 </select>
             </div>
             
             <div class="jo-select-wrapper">
-                <select>
-                    <option value="" disabled selected>Lokasi</option>
-                    <option>Jakarta</option>
-                    <option>Bekerja Remote</option>
-                    <option>Hybrid (WFO/WFH)</option>
-                    <option>Bandung</option>
+                <select id="filter-location">
+                    <option value="" selected>Semua Lokasi</option>
+                    <option value="jakarta">Jakarta</option>
+                    <option value="remote">Bekerja Remote</option>
+                    <option value="hybrid">Hybrid (WFO/WFH)</option>
                 </select>
             </div>
 
             <div class="jo-select-wrapper">
-                <select>
-                    <option value="" disabled selected>Rentang Gaji</option>
-                    <option>Rp2.5 Juta - Rp5 Juta</option>
-                    <option>Rp5 Juta - Rp10 Juta</option>
-                    <option>Rp10 Juta - Rp20 Juta</option>
-                    <option>> Rp20 Juta</option>
+                <select id="filter-salary">
+                    <option value="" selected>Semua Gaji</option>
+                    <option value="2.5-5">Rp2.5 Juta - Rp5 Juta</option>
+                    <option value="5-10">Rp5 Juta - Rp12 Juta</option>
+                    <option value="10-20">Rp10 Juta - Rp20 Juta</option>
+                    <option value="20-plus">> Rp20 Juta</option>
                 </select>
             </div>
         </div>
 
-        <button class="jo-filter-btn">
-            <span>Filter Lowongan</span>
+        <button class="jo-filter-btn" onclick="resetFilters()">
+            <span>Atur Ulang</span>
             <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
             </svg>
         </button>
     </div>
 
-    <!-- Job Cards Grid -->
     <div class="jo-grid">
-        <!-- Card 1 -->
-        <div class="jo-card">
+        <div class="jo-card" data-title="UI/UX Designer Intern" data-company="Tokopedia" data-type="magang" data-location="hybrid jakarta" data-salary-min="2500000" data-salary-max="4000000" data-tags="figma design thinking">
             <div class="jo-card-header">
                 <div class="jo-company-logo logo-tokopedia">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -98,12 +92,11 @@
                 </div>
             </div>
             <div class="jo-card-footer">
-                <a href="#" class="jo-details-btn">Lihat Detail</a>
+                <a href="https://www.tokopedia.com/careers" target="_blank" rel="noopener noreferrer" class="jo-details-btn">Lihat Detail</a>
             </div>
         </div>
 
-        <!-- Card 2 -->
-        <div class="jo-card">
+        <div class="jo-card" data-title="Product Management Trainee" data-company="Gojek" data-type="full-time" data-location="remote" data-salary-min="8000000" data-salary-max="12000000" data-tags="agile analisis data">
             <div class="jo-card-header">
                 <div class="jo-company-logo logo-gojek">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -127,12 +120,11 @@
                 </div>
             </div>
             <div class="jo-card-footer">
-                <a href="#" class="jo-details-btn">Lihat Detail</a>
+                <a href="https://www.gojek.com/careers" target="_blank" rel="noopener noreferrer" class="jo-details-btn">Lihat Detail</a>
             </div>
         </div>
 
-        <!-- Card 3 -->
-        <div class="jo-card">
+        <div class="jo-card" data-title="Junior Frontend Developer" data-company="Traveloka" data-type="full-time" data-location="jakarta" data-salary-min="6500000" data-salary-max="9000000" data-tags="react.js javascript">
             <div class="jo-card-header">
                 <div class="jo-company-logo logo-traveloka">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -156,12 +148,11 @@
                 </div>
             </div>
             <div class="jo-card-footer">
-                <a href="#" class="jo-details-btn">Lihat Detail</a>
+                <a href="https://www.traveloka.com/en-id/careers" target="_blank" rel="noopener noreferrer" class="jo-details-btn">Lihat Detail</a>
             </div>
         </div>
 
-        <!-- Card 4 -->
-        <div class="jo-card">
+        <div class="jo-card" data-title="Mobile App Developer" data-company="Grab" data-type="full-time" data-location="remote" data-salary-min="10000000" data-salary-max="15000000" data-tags="flutter dart">
             <div class="jo-card-header">
                 <div class="jo-company-logo logo-grab">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -187,12 +178,11 @@
                 </div>
             </div>
             <div class="jo-card-footer">
-                <a href="#" class="jo-details-btn">Lihat Detail</a>
+                <a href="https://grab.careers" target="_blank" rel="noopener noreferrer" class="jo-details-btn">Lihat Detail</a>
             </div>
         </div>
 
-        <!-- Card 5 -->
-        <div class="jo-card">
+        <div class="jo-card" data-title="Data Analyst Intern" data-company="Shopee" data-type="magang" data-location="jakarta" data-salary-min="3000000" data-salary-max="5000000" data-tags="python sql">
             <div class="jo-card-header">
                 <div class="jo-company-logo logo-shopee">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -218,12 +208,11 @@
                 </div>
             </div>
             <div class="jo-card-footer">
-                <a href="#" class="jo-details-btn">Lihat Detail</a>
+                <a href="https://careers.shopee.co.id" target="_blank" rel="noopener noreferrer" class="jo-details-btn">Lihat Detail</a>
             </div>
         </div>
 
-        <!-- Card 6 -->
-        <div class="jo-card">
+        <div class="jo-card" data-title="Backend Engineer" data-company="Tiket.com" data-type="full-time" data-location="remote" data-salary-min="12000000" data-salary-max="18000000" data-tags="node.js go">
             <div class="jo-card-header">
                 <div class="jo-company-logo logo-tiket">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -247,12 +236,11 @@
                 </div>
             </div>
             <div class="jo-card-footer">
-                <a href="#" class="jo-details-btn">Lihat Detail</a>
+                <a href="https://www.tiket.com/careers" target="_blank" rel="noopener noreferrer" class="jo-details-btn">Lihat Detail</a>
             </div>
         </div>
 
-        <!-- Card 7 -->
-        <div class="jo-card">
+        <div class="jo-card" data-title="Cloud Solutions Architect" data-company="AWS" data-type="full-time" data-location="jakarta" data-salary-min="15000000" data-salary-max="25000000" data-tags="aws infrastruktur">
             <div class="jo-card-header">
                 <div class="jo-company-logo logo-aws">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -276,12 +264,11 @@
                 </div>
             </div>
             <div class="jo-card-footer">
-                <a href="#" class="jo-details-btn">Lihat Detail</a>
+                <a href="https://www.amazon.jobs" target="_blank" rel="noopener noreferrer" class="jo-details-btn">Lihat Detail</a>
             </div>
         </div>
 
-        <!-- Card 8 -->
-        <div class="jo-card">
+        <div class="jo-card" data-title="Cybersecurity Analyst" data-company="BCA" data-type="full-time" data-location="hybrid" data-salary-min="10000000" data-salary-max="18000000" data-tags="keamanan jaringan pen testing">
             <div class="jo-card-header">
                 <div class="jo-company-logo logo-bca">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -306,12 +293,11 @@
                 </div>
             </div>
             <div class="jo-card-footer">
-                <a href="#" class="jo-details-btn">Lihat Detail</a>
+                <a href="https://karir.bca.co.id" target="_blank" rel="noopener noreferrer" class="jo-details-btn">Lihat Detail</a>
             </div>
         </div>
 
-        <!-- Card 9 -->
-        <div class="jo-card">
+        <div class="jo-card" data-title="Machine Learning Engineer" data-company="Bukalapak" data-type="full-time" data-location="remote" data-salary-min="12000000" data-salary-max="20000000" data-tags="python tensorflow">
             <div class="jo-card-header">
                 <div class="jo-company-logo logo-bukalapak">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -337,14 +323,127 @@
                 </div>
             </div>
             <div class="jo-card-footer">
-                <a href="#" class="jo-details-btn">Lihat Detail</a>
+                <a href="https://careers.bukalapak.com" target="_blank" rel="noopener noreferrer" class="jo-details-btn">Lihat Detail</a>
             </div>
+        </div>
+
+        <div class="jo-empty-state" id="jo-empty-state" style="display: none; grid-column: 1 / -1; text-align: center; padding: 60px 20px; background: #ffffff; border-radius: 24px; border: 1.5px dashed #E2E8F0; margin-top: 10px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 16px; display: inline-block;"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+            <h3 style="font-size: 16.5px; font-weight: 800; color: #0F172A; margin: 0 0 6px 0;">Lowongan tidak ditemukan</h3>
+            <p style="color: #64748B; font-size: 13.5px; margin: 0 0 20px 0; font-weight: 500;">Silakan ubah kata kunci atau setelan filter Anda untuk menemukan peluang karir yang sesuai.</p>
+            <button type="button" class="btn-hero-solid" onclick="resetFilters()" style="background: #2563EB; color: white; border: none; padding: 10px 20px; border-radius: 10px; font-weight: 700; cursor: pointer; font-size: 13.5px;">Atur Ulang Filter</button>
         </div>
     </div>
 
-    <!-- Load More -->
     <div class="jo-load-more">
         <button class="jo-load-btn">Muat Lebih Banyak Lowongan</button>
     </div>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const heroSearch = document.getElementById('hero-search');
+        const heroSearchBtn = document.getElementById('hero-search-btn');
+        const filterSearch = document.getElementById('filter-search');
+        const filterType = document.getElementById('filter-type');
+        const filterLocation = document.getElementById('filter-location');
+        const filterSalary = document.getElementById('filter-salary');
+        const cards = document.querySelectorAll('.jo-card');
+        const emptyState = document.getElementById('jo-empty-state');
+
+        function filterJobs() {
+            const query = filterSearch.value.toLowerCase().trim();
+            const type = filterType.value;
+            const location = filterLocation.value;
+            const salary = filterSalary.value;
+            let visibleCount = 0;
+
+            cards.forEach(card => {
+                const title = card.getAttribute('data-title').toLowerCase();
+                const company = card.getAttribute('data-company').toLowerCase();
+                const cardType = card.getAttribute('data-type');
+                const cardLocation = card.getAttribute('data-location').toLowerCase();
+                const cardSalaryMin = parseInt(card.getAttribute('data-salary-min'));
+                const cardSalaryMax = parseInt(card.getAttribute('data-salary-max'));
+                const tags = card.getAttribute('data-tags').toLowerCase();
+
+                const matchesQuery = !query || 
+                    title.includes(query) || 
+                    company.includes(query) || 
+                    tags.includes(query);
+
+                const matchesType = !type || cardType === type;
+
+                const matchesLocation = !location || 
+                    (location === 'jakarta' && cardLocation.includes('jakarta')) ||
+                    (location === 'remote' && cardLocation.includes('remote')) ||
+                    (location === 'hybrid' && cardLocation.includes('hybrid'));
+
+                let matchesSalary = true;
+                if (salary) {
+                    if (salary === '2.5-5') {
+                        matchesSalary = cardSalaryMin >= 2500000 && cardSalaryMax <= 5000000;
+                    } else if (salary === '5-10') {
+                        matchesSalary = cardSalaryMin >= 5000000 && cardSalaryMax <= 12000000;
+                    } else if (salary === '10-20') {
+                        matchesSalary = cardSalaryMin >= 10000000 && cardSalaryMax <= 20000000;
+                    } else if (salary === '20-plus') {
+                        matchesSalary = cardSalaryMax >= 20000000 || cardSalaryMin >= 20000000;
+                    }
+                }
+
+                if (matchesQuery && matchesType && matchesLocation && matchesSalary) {
+                    card.style.display = 'flex';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            if (visibleCount === 0) {
+                emptyState.style.display = 'block';
+            } else {
+                emptyState.style.display = 'none';
+            }
+        }
+
+        if (heroSearch) {
+            heroSearch.addEventListener('input', (e) => {
+                filterSearch.value = e.target.value;
+                filterJobs();
+            });
+        }
+
+        if (heroSearchBtn) {
+            heroSearchBtn.addEventListener('click', () => {
+                filterSearch.value = heroSearch.value;
+                filterJobs();
+                const targetElement = document.querySelector('.jo-main-container');
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        }
+
+        if (filterSearch) {
+            filterSearch.addEventListener('input', (e) => {
+                if (heroSearch) heroSearch.value = e.target.value;
+                filterJobs();
+            });
+        }
+
+        if (filterType) filterType.addEventListener('change', filterJobs);
+        if (filterLocation) filterLocation.addEventListener('change', filterJobs);
+        if (filterSalary) filterSalary.addEventListener('change', filterJobs);
+
+        window.resetFilters = function() {
+            if (heroSearch) heroSearch.value = '';
+            if (filterSearch) filterSearch.value = '';
+            if (filterType) filterType.value = '';
+            if (filterLocation) filterLocation.value = '';
+            if (filterSalary) filterSalary.value = '';
+            filterJobs();
+        };
+    });
+</script>
 @endsection
