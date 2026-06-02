@@ -20,6 +20,11 @@ class User extends Authenticatable
         'verification_code',
         'verification_code_expires_at',
         'is_verified',
+        'avatar',
+        'bio',
+        'institution',
+        'age',
+        'headline',
     ];
 
     protected $hidden = [
@@ -53,5 +58,13 @@ class User extends Authenticatable
     public function isAdmin(): bool
     {
         return $this->role === 'admin';
+    }
+
+    public function getAvatarUrlAttribute(): string
+    {
+        if ($this->avatar) {
+            return asset('storage/avatars/' . $this->avatar);
+        }
+        return 'https://ui-avatars.com/api/?name=' . urlencode($this->username) . '&background=2563EB&color=ffffff&size=150';
     }
 }

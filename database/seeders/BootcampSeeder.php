@@ -45,6 +45,7 @@ class BootcampSeeder extends Seeder
             ['track_id' => $tracks['cyber'], 'name' => 'Hacktiv8 — Cyber Security Bootcamp', 'url' => 'https://www.hacktiv8.com/course/ethical-hacking-and-penetration-testing', 'description' => 'Bootcamp intensif ethical hacking dan penetrasi sistem.'],
         ];
 
+        
         DB::table('bootcamps')->insert($bootcamps);
     }
 }
