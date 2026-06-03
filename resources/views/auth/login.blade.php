@@ -71,7 +71,7 @@
                             <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }} />
                             Ingat saya
                         </label>
-                        <a href="#" class="forgot-link">Lupa Password?</a>
+                        <a href="{{ route('password.request') }}" class="forgot-link">Lupa Password?</a>
                     </div>
 
                     <div class="login-actions">

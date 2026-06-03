@@ -132,6 +132,21 @@
                         <input type="email" name="email" id="email" value="{{ old('email', $user->email) }}" placeholder="joko@example.com">
                     </div>
 
+                    <div style="margin-top: 32px; border-top: 1px solid #E2E8F0; padding-top: 24px;">
+                        <h3 style="font-size: 16px; font-weight: 800; color: #0F172A; margin: 0 0 6px 0;">Ganti Password</h3>
+                        <p style="font-size: 12.5px; color: #64748B; margin: 0 0 20px 0;">Kosongkan jika tidak ingin mengganti password.</p>
+                        <div class="form-row-2col">
+                            <div class="form-field-group">
+                                <label for="password">Password Baru</label>
+                                <input type="password" name="password" id="password" placeholder="Masukkan password baru">
+                            </div>
+                            <div class="form-field-group">
+                                <label for="password_confirmation">Konfirmasi Password Baru</label>
+                                <input type="password" name="password_confirmation" id="password_confirmation" placeholder="Ulangi password baru">
+                            </div>
+                        </div>
+                    </div>
+
                     <div style="margin-top: 28px;">
                         <label class="step-checkbox-item">
                             <input type="checkbox" id="public-profile" checked>

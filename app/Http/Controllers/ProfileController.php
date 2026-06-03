@@ -328,7 +328,7 @@ class ProfileController extends Controller
     {
         $user = Auth::user();
 
-        $validated = $request->validate([
+        $rules = [
             'username' => [
                 'required',
                 'string',
@@ -345,11 +345,22 @@ class ProfileController extends Controller
             'age' => 'nullable|integer|min:1|max:120',
             'bio' => 'nullable|string|max:1000',
             'avatar' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
-        ], [
+        ];
+
+        $messages = [
             'avatar.image' => 'File harus berupa gambar.',
             'avatar.mimes' => 'Format foto profil wajib JPG, JPEG, atau PNG.',
             'avatar.max' => 'Ukuran foto profil tidak boleh melebihi 2MB.',
-        ]);
+            'password.min' => 'Password minimal 8 karakter.',
+            'password.regex' => 'Password harus mengandung minimal 1 huruf kapital dan 1 angka.',
+            'password.confirmed' => 'Konfirmasi password tidak cocok.',
+        ];
+
+        if ($request->filled('password')) {
+            $rules['password'] = ['required', 'min:8', 'regex:/[A-Z]/', 'regex:/[0-9]/', 'confirmed'];
+        }
+
+        $validated = $request->validate($rules, $messages);
 
         $updateData = [
             'username' => strtolower($validated['username']),
@@ -371,6 +382,10 @@ class ProfileController extends Controller
             }
             
             $updateData['avatar'] = $filename;
+        }
+
+        if ($request->filled('password')) {
+            $updateData['password'] = \Illuminate\Support\Facades\Hash::make($validated['password']);
         }
 
         $user->update($updateData);
