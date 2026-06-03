@@ -85,4 +85,63 @@ class AuthController extends Controller
 
         return redirect()->route('home');
     }
+
+    public function showForgotPassword()
+    {
+        return view('auth.forgot-password');
+    }
+
+    public function submitForgotPassword(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email|exists:users,email',
+        ], [
+            'email.required' => 'Email wajib diisi.',
+            'email.email' => 'Format email tidak valid. Contoh: nama@email.com',
+            'email.exists' => 'Email tidak terdaftar. Coba gunakan email lain.',
+        ]);
+
+        $request->session()->put('reset_email', $request->input('email'));
+
+        return redirect()->route('password.reset');
+    }
+
+    public function showResetPassword(Request $request)
+    {
+        if (!$request->session()->has('reset_email')) {
+            return redirect()->route('password.request');
+        }
+
+        return view('auth.reset-password');
+    }
+
+    public function submitResetPassword(Request $request)
+    {
+        if (!$request->session()->has('reset_email')) {
+            return redirect()->route('password.request');
+        }
+
+        $request->validate([
+            'password' => ['required', 'min:8', 'regex:/[A-Z]/', 'regex:/[0-9]/', 'confirmed'],
+        ], [
+            'password.required' => 'Password wajib diisi.',
+            'password.min' => 'Password minimal 8 karakter.',
+            'password.regex' => 'Password harus mengandung minimal 1 huruf kapital dan 1 angka. Contoh: Belajar123',
+            'password.confirmed' => 'Konfirmasi password tidak cocok. Periksa kembali.',
+        ]);
+
+        $email = $request->session()->get('reset_email');
+        $user = User::where('email', $email)->first();
+
+        if ($user) {
+            $user->update([
+                'password' => Hash::make($request->input('password')),
+            ]);
+        }
+
+        $request->session()->forget('reset_email');
+
+        return redirect()->route('login')
+            ->with('success', 'Password berhasil diubah. Silakan masuk.');
+    }
 }
