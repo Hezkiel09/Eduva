@@ -75,12 +75,7 @@
                         <polyline points="2 12 12 17 22 12"></polyline>
                     </svg>
                 </div>
-                <div class="jo-match-badge">
-                    <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
-                    </svg>
-                    <span>Kecocokan Asesmen: 92%</span>
-                </div>
+
             </div>
             <div class="jo-card-body">
                 <h3>UI/UX Designer Intern</h3>
@@ -103,12 +98,7 @@
                         <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
                     </svg>
                 </div>
-                <div class="jo-match-badge">
-                    <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
-                    </svg>
-                    <span>Kecocokan Asesmen: 88%</span>
-                </div>
+
             </div>
             <div class="jo-card-body">
                 <h3>Product Management Trainee</h3>
@@ -131,12 +121,7 @@
                         <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
                     </svg>
                 </div>
-                <div class="jo-match-badge">
-                    <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
-                    </svg>
-                    <span>Kecocokan Asesmen: 85%</span>
-                </div>
+
             </div>
             <div class="jo-card-body">
                 <h3>Junior Frontend Developer</h3>
@@ -161,12 +146,7 @@
                         <line x1="12" y1="17" x2="12" y2="21"></line>
                     </svg>
                 </div>
-                <div class="jo-match-badge">
-                    <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
-                    </svg>
-                    <span>Kecocokan Asesmen: 82%</span>
-                </div>
+
             </div>
             <div class="jo-card-body">
                 <h3>Mobile App Developer</h3>
@@ -191,12 +171,7 @@
                         <line x1="6" y1="20" x2="6" y2="14"></line>
                     </svg>
                 </div>
-                <div class="jo-match-badge">
-                    <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
-                    </svg>
-                    <span>Kecocokan Asesmen: 78%</span>
-                </div>
+
             </div>
             <div class="jo-card-body">
                 <h3>Data Analyst Intern</h3>
@@ -219,12 +194,7 @@
                         <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
                     </svg>
                 </div>
-                <div class="jo-match-badge">
-                    <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
-                    </svg>
-                    <span>Kecocokan Asesmen: 75%</span>
-                </div>
+
             </div>
             <div class="jo-card-body">
                 <h3>Backend Engineer</h3>
@@ -247,12 +217,7 @@
                         <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
                     </svg>
                 </div>
-                <div class="jo-match-badge">
-                    <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
-                    </svg>
-                    <span>Kecocokan Asesmen: 80%</span>
-                </div>
+
             </div>
             <div class="jo-card-body">
                 <h3>Cloud Solutions Architect</h3>
@@ -276,12 +241,7 @@
                         <path d="M12 2a5 5 0 0 0-5 5v4h10V7a5 5 0 0 0-5-5z"></path>
                     </svg>
                 </div>
-                <div class="jo-match-badge">
-                    <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
-                    </svg>
-                    <span>Kecocokan Asesmen: 77%</span>
-                </div>
+
             </div>
             <div class="jo-card-body">
                 <h3>Cybersecurity Analyst</h3>
@@ -306,12 +266,7 @@
                         <line x1="12" y1="17" x2="12.01" y2="17"></line>
                     </svg>
                 </div>
-                <div class="jo-match-badge">
-                    <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
-                    </svg>
-                    <span>Kecocokan Asesmen: 84%</span>
-                </div>
+
             </div>
             <div class="jo-card-body">
                 <h3>Machine Learning Engineer</h3>
@@ -335,9 +290,7 @@
         </div>
     </div>
 
-    <div class="jo-load-more">
-        <button class="jo-load-btn">Muat Lebih Banyak Lowongan</button>
-    </div>
+
 </div>
 
 <script>
